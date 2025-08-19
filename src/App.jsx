@@ -171,7 +171,7 @@ const i18n = {
     chips: [
       { label: "React", value: "Vite + Tailwind" },
       { label: "Symfony", value: "API / Back‑end" },
-      { label: "E‑commerce", value: "Stripe/Checkout" },
+      { label: "E‑commerce", value: "Stripe" },
       { label: "SEO", value: "Meta + Sitemap" },
     ],
     bullet_fast: "Fast",
