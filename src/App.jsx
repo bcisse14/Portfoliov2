@@ -90,9 +90,9 @@ const i18n = {
       },
       {
         id: "ecom",
-        title: "E‑commerce store",
+        title: "Boutique E‑commerce",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
-        need: "Sell online easily",
+        need: "Vendre en ligne facilement",
         solution: "Catalogue, Panier, paiement sécurisé, Gestion des produits via back‑office. Back‑end: Symfony + Stripe.",
         tags: ["React", "Symfony", "Stripe"],
         video: MyoptiqueVideo,
