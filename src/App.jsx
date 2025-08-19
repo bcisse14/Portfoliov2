@@ -43,7 +43,7 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
 // i18n dictionary (titles, descriptions, and projects include imported assets)
 const i18n = {
   fr: {
-    brand: "Karlsefni.dev",
+    brand: "Karlsefni",
     nav: { home: "Accueil", services: "Services", portfolio: "Portfolio", about: "À propos", contact: "Contact" },
     cta_primary: "Discutons de votre projet",
     hero_badge: "Développeur Web Freelance",
@@ -159,7 +159,7 @@ const i18n = {
   },
 
   en: {
-    brand: "Karlsefni.dev",
+    brand: "Karlsefni",
     nav: { home: "Home", services: "Services", portfolio: "Work", about: "About", contact: "Contact" },
     cta_primary: "Let’s discuss your project",
     hero_badge: "Freelance Web Developer",
