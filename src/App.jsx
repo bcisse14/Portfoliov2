@@ -134,7 +134,7 @@ const i18n = {
 
     contact_kicker: "Contact",
     contact_title: "Parlons de votre projet",
-    contact_sub: "Réponse sous 24h ouvrées. Je peux faire un rapide audit gratuit et assurer un suivi.",
+    contact_sub: "Réponse sous 24h ouvrées. Audit rapide et gratuit. Suivi assuré.",
     form_name: "Nom",
     form_email: "Email",
     form_message: "Message",
@@ -245,7 +245,7 @@ const i18n = {
 
     contact_kicker: "Contact",
     contact_title: "Let’s talk about your project",
-    contact_sub: "Reply within 1 business day. I can do a quick free audit and propose a roadmap.",
+    contact_sub: "Reply within 1 business day. Quick and free audit. Guaranteed follow-up.",
     form_name: "Name",
     form_email: "Email",
     form_message: "Message",
