@@ -147,7 +147,7 @@ const i18n = {
     footer_legal: "SIRET / Mentions légales minimales ici.",
 
     sending: "Envoi…",
-    sent_ok: "Message envoyé ! Je vous réponds rapidement.",
+    sent_ok: "Message envoyé ! Je vous réponds dans les plus brefs délais.",
     sent_ko: "Échec de l’envoi. Réessayez ou écrivez‑moi directement.",
 
     theme_label: "Théme",
@@ -230,7 +230,7 @@ const i18n = {
 
     about_kicker: "About",
     about_title: "Reliable, modern, client‑oriented",
-    about_sub: "Trained at Epitech, I specialize in showcase and e‑commerce websites for small businesses. My approach is simple: understand your business, ship fast, optimize what matters (speed, SEO, conversion).",
+    about_sub: "Trained at Epitech, I specialize in showcase and e‑commerce websites for small businesses. My approach is simple: understand your business, quick delivery, optimize what matters (speed, SEO, conversion).",
     about_points: ["Clear communication, weekly milestones & deliverables", "Clean code (React, Tailwind, best practices)", "Measured performance (Lighthouse, Core Web Vitals)", "Continuous deployment (Vercel/Netlify)"],
     stack_label: "Stack",
     stack_value: "React, Symfony, TailwindCSS, API Platform, Stripe",
