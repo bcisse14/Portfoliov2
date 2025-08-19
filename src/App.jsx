@@ -29,7 +29,7 @@ import {
 // Portfolio Freelance – React + Tailwind + Framer Motion
 // + EmailJS (form), Dark Mode Toggle, FR/EN i18n, SEO meta per lang
 // Modal for projects (video + screenshot behavior)
-// Updated: video preview (paused), 'Besoin' FR label, stable keys for services
+// Updated: EmailJS init + verbose logs for debugging
 // Drop this file in src/App.jsx (Vite project)
 // ------------------------------------------------------
 
@@ -142,7 +142,7 @@ const i18n = {
     sent_ok: "Message envoyé ! Je vous réponds rapidement.",
     sent_ko: "Échec de l’envoi. Réessayez ou écrivez‑moi directement.",
 
-    theme_label: "Thème",
+    theme_label: "Théme",
     lang_label: "Langue",
 
     seo_title: "Bafodé Cissé – Développeur Web Freelance (React & Symfony)",
@@ -299,7 +299,7 @@ function ProjectModal({ project, onClose, lang }) {
   }, [project, onClose]);
 
   if (!project) return null;
-  const needLabel = lang === "fr" ? "Besoin:" : "Need:"; // FR = 'Besoin' only per request
+  const needLabel = lang === "fr" ? "Besoin:" : "Need:"; // FR only Besoin
 
   const handleOverlayClick = (e) => { if (e.target === overlayRef.current) onClose(); };
   const onVideoEnded = () => project.capture && setShowCapture(true);
@@ -315,7 +315,7 @@ function ProjectModal({ project, onClose, lang }) {
         <div className="p-4 space-y-4">
           {project.video && (
             <div>
-              <video ref={videoRef} onEnded={onVideoEnded} controls className="w-full rounded-md bg-black">
+              <video ref={videoRef} onEnded={onVideoEnded} controls className="w-full rounded-md bg-black" poster={project.poster || ""}>
                 <source src={project.video} type="video/mp4" />
                 {"Votre navigateur ne supporte pas la vidéo."}
               </video>
@@ -433,7 +433,7 @@ const Portfolio = ({ t, lang, onOpen }) => {
             <div key={p.id} role="button" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter' || e.key===' ') onOpen(p); }} onClick={() => onOpen(p)} className="group rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow-sm text-left cursor-pointer focus:outline-none">
               <div className="aspect-[16/10] overflow-hidden relative bg-black">
                 {p.video ? (
-                  <video className="h-full w-full object-cover" src={p.video} preload="metadata" muted playsInline aria-hidden="true" />
+                  <video className="h-full w-full object-cover" src={p.video} preload="metadata" muted playsInline poster={p.poster || ""} aria-hidden="true" />
                 ) : (
                   <img src={p.image} alt={p.title} className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" />
                 )}
@@ -489,7 +489,35 @@ const Contact = ({ t, lang }) => {
   const [status, setStatus] = useState("idle");
   const pageUrl = typeof window !== "undefined" ? window.location.href : "";
 
-  const onSubmit = async (e) => { e.preventDefault(); setStatus("loading"); try { await emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, formRef.current, { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }); formRef.current?.reset(); setStatus("success"); } catch (err) { console.error(err); setStatus("error"); } };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    if (!formRef.current) {
+      console.error('Form ref is missing');
+      setStatus('error');
+      return;
+    }
+
+    // Debug: collect form data
+    const formPayload = {};
+    new FormData(formRef.current).forEach((v, k) => (formPayload[k] = v));
+    console.log('EmailJS: sending form with payload', formPayload, {
+      serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      hasPublicKey: !!import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    });
+
+    try {
+      const res = await emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, formRef.current);
+      console.log('EmailJS sendForm response', res);
+      formRef.current?.reset();
+      setStatus("success");
+    } catch (err) {
+      console.error('EmailJS send error', err);
+      setStatus("error");
+    }
+  };
 
   return (
     <section id="contact" className="py-16 sm:py-24 bg-white dark:bg-neutral-950">
@@ -525,7 +553,7 @@ const Contact = ({ t, lang }) => {
 const Footer = ({ t }) => (
   <footer className="border-t border-neutral-200 dark:border-neutral-800 py-10 bg-white dark:bg-neutral-950">
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p><div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300"><a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a><a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a><a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.portfolio}</a><a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a></div></div>
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p><div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300"><a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a><a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a><a href="#portfolio" className="hover:text-neutral-900 dark:hover;text-white">{t.nav.portfolio}</a><a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a></div></div>
       <p className="mt-4 text-xs text-neutral-500 dark:text-neutral-400">{t.footer_legal}</p>
     </div>
   </footer>
@@ -540,6 +568,21 @@ export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
   const toggleTheme = () => setTheme((p) => (p === "dark" ? "light" : "dark"));
   useEffect(() => { const root = document.documentElement; if (theme === "dark") root.classList.add("dark"); else root.classList.remove("dark"); localStorage.setItem("theme", theme); }, [theme]);
+
+  // Initialize EmailJS (step 5) — important for debugging & optional if you pass publicKey in sendForm
+  useEffect(() => {
+    try {
+      const key = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      if (key) {
+        emailjs.init(key);
+        console.log('EmailJS initialized with public key');
+      } else {
+        console.warn('VITE_EMAILJS_PUBLIC_KEY is not set. EmailJS not initialized.');
+      }
+    } catch (e) {
+      console.error('Error initializing EmailJS', e);
+    }
+  }, []);
 
   // SEO / html lang
   useEffect(() => {
