@@ -4,8 +4,12 @@ import emailjs from "@emailjs/browser";
 
 // Assets (place these files in src/assets)
 import BookingVideo from "./assets/Booking.mp4";
+import BookingPoster from "./assets/Booking_poster.png";
 import BookingCapture from "./assets/Capture_Booking.png";
 import HospitalVideo from "./assets/Hospital.mp4";
+import HospitalPoster from "./assets/Hospital_poster.png";
+import MyoptiqueVideo from "./assets/Myoptique.mp4";
+import MyoptiquePoster from "./assets/Myoptique_poster.png";
 
 import {
   Code2,
@@ -80,16 +84,19 @@ const i18n = {
         solution: "App web avec calendrier synchronisé, formulaires, notifications e‑mail, panneau d'admin. Back‑end : Symfony.",
         tags: ["React", "Symfony", "Tailwind"],
         video: BookingVideo,
+        poster: BookingPoster,
         capture: BookingCapture,
         link: "#",
       },
       {
         id: "ecom",
-        title: "Boutique e‑commerce artisanale",
+        title: "E‑commerce store",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
-        need: "Vendre en ligne simplement",
-        solution: "Catalogue, panier, checkout sécurisé, gestion produits via back‑office.",
-        tags: ["React", "Stripe", "Headless CMS"],
+        need: "Sell online easily",
+        solution: "Catalogue, Panier, paiement sécurisé, Gestion des produits via back‑office. Back‑end: Symfony + Stripe.",
+        tags: ["React", "Symfony", "Stripe"],
+        video: MyoptiqueVideo,
+        poster: MyoptiquePoster,
         link: "#",
       },
       {
@@ -100,6 +107,7 @@ const i18n = {
         solution: "Site pour un centre de santé (Symfony + React). Projet en cours.",
         tags: ["Symfony", "React", "Tailwind"],
         video: HospitalVideo,
+        poster: HospitalPoster,
         link: "#",
       },
     ],
@@ -192,16 +200,19 @@ const i18n = {
         solution: "Web app with synced calendar, forms, email notifications, admin panel. Back‑end: Symfony.",
         tags: ["React", "Symfony", "Tailwind"],
         video: BookingVideo,
+        poster: BookingPoster,
         capture: BookingCapture,
         link: "#",
       },
       {
         id: "ecom",
-        title: "Craft e‑commerce store",
+        title: "E-commerce store",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
         need: "Sell online easily",
-        solution: "Catalog, cart, secure checkout, product management via back‑office.",
-        tags: ["React", "Stripe", "Headless CMS"],
+        solution: "Catalog, cart, secure checkout, product management via back-office. Back-end: Symfony + Stripe.",
+        tags: ["React", "Symfony", "Stripe"],
+        video: MyoptiqueVideo,
+        poster: MyoptiquePoster,
         link: "#",
       },
       {
@@ -212,6 +223,7 @@ const i18n = {
         solution: "Site for a health center (Symfony + React). Project ongoing.",
         tags: ["Symfony", "React", "Tailwind"],
         video: HospitalVideo,
+        poster: HospitalPoster,
         link: "#",
       },
     ],
