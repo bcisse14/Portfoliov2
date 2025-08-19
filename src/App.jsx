@@ -114,7 +114,7 @@ const i18n = {
 
     about_kicker: "À propos",
     about_title: "Fiable, moderne, orienté client",
-    about_sub: "Formé à la Web@cademie by Epitech, je me spécialise dans la création de sites vitrines et e‑commerce adaptés aux besoins des petites entreprises. Mon approche est simple : comprendre votre activité, livrer vite, et optimiser ce qui compte (vitesse, SEO, conversion).",
+    about_sub: "Formé à Epitech, je me spécialise dans la création de sites vitrines et e‑commerce adaptés aux besoins des petites entreprises. Mon approche est simple : comprendre votre activité, livrer rapidement, et optimiser ce qui compte (vitesse, SEO, conversion).",
     about_points: [
       "Communication claire, jalons et livrables hebdomadaires",
       "Code propre (React, Tailwind, bonnes pratiques)",
@@ -230,7 +230,7 @@ const i18n = {
 
     about_kicker: "About",
     about_title: "Reliable, modern, client‑oriented",
-    about_sub: "Trained at Web@cademie by Epitech, I specialize in showcase and e‑commerce websites for small businesses. My approach is simple: understand your business, ship fast, optimize what matters (speed, SEO, conversion).",
+    about_sub: "Trained at Epitech, I specialize in showcase and e‑commerce websites for small businesses. My approach is simple: understand your business, ship fast, optimize what matters (speed, SEO, conversion).",
     about_points: ["Clear communication, weekly milestones & deliverables", "Clean code (React, Tailwind, best practices)", "Measured performance (Lighthouse, Core Web Vitals)", "Continuous deployment (Vercel/Netlify)"],
     stack_label: "Stack",
     stack_value: "React, Symfony, TailwindCSS, API Platform, Stripe",
