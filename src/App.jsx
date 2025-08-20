@@ -350,7 +350,7 @@ function ProjectModal({ project, onClose, lang }) {
 
           <div>
             <p className="text-sm text-neutral-700 dark:text-neutral-300"><span className="font-medium">{needLabel}</span> {project.need}</p>
-            <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-300"><span className="font-medium">Solution:</span> {project.solution}</p>
+            <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-300"><span className="font-medium">Solution :</span> {project.solution}</p>
             <div className="mt-3 flex flex-wrap gap-2">{project.tags?.map((tag) => (<span key={tag} className="text-xs rounded-full border px-2 py-1">{tag}</span>))}</div>
           </div>
         </div>
@@ -466,7 +466,7 @@ const Portfolio = ({ t, lang, onOpen }) => {
               <div className="p-5">
                 <h3 className="font-semibold text-neutral-900 dark:text-white">{p.title}</h3>
                 <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300"><span className="font-medium text-neutral-800 dark:text-neutral-200">{needLabel}</span> {p.need}</p>
-                <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300"><span className="font-medium text-neutral-800 dark:text-neutral-200">Solution: </span>{p.solution}</p>
+                <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300"><span className="font-medium text-neutral-800 dark:text-neutral-200">Solution : </span>{p.solution}</p>
                 <div className="mt-3 flex flex-wrap gap-2">{p.tags?.map((t)=>(<span key={t} className="text-xs rounded-full border border-neutral-300 dark:border-neutral-700 px-2 py-1 text-neutral-700 dark:text-neutral-200">{t}</span>))}</div>
               </div>
             </div>
