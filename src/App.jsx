@@ -55,7 +55,7 @@ const i18n = {
     chips: [
       { label: "React", value: "Vite + Tailwind" },
       { label: "Symfony", value: "API / Back‑end" },
-      { label: "E‑commerce", value: "Stripe/Checkout" },
+      { label: "E‑commerce", value: "Stripe" },
       { label: "SEO", value: "Meta + Sitemap" },
     ],
     bullet_fast: "Sites rapides",
@@ -114,7 +114,7 @@ const i18n = {
 
     about_kicker: "À propos",
     about_title: "Fiable, moderne, orienté client",
-    about_sub: "Formé à Epitech, je me spécialise dans la création de sites vitrines et e‑commerce adaptés aux besoins des petites entreprises. Mon approche est simple : comprendre votre activité, livrer rapidement, et optimiser ce qui compte (vitesse, SEO, conversion).",
+    about_sub: "Formé à Epitech, je me spécialise dans la création de sites vitrines et e‑commerce adaptés aux besoins des petites entreprises. Mon approche est simple : comprendre votre activité, livrer rapidement, et optimiser ce qui compte (vitesse, SEO, conversion).",
     about_points: [
       "Communication claire, jalons et livrables hebdomadaires",
       "Code propre (React, Tailwind, bonnes pratiques)",
@@ -129,7 +129,7 @@ const i18n = {
     availability_value: "Ouvert aux nouveaux projets",
 
     banner_text: "Disponible pour de nouveaux projets",
-    banner_note: " — le premier client bénéficiera d’un tarif préférentiel.",
+    banner_note: " — le premier client bénéficiera d'un tarif préférentiel.",
     banner_btn: "Parlez‑moi de votre projet",
 
     contact_kicker: "Contact",
@@ -148,7 +148,7 @@ const i18n = {
 
     sending: "Envoi…",
     sent_ok: "Message envoyé ! Je vous réponds dans les plus brefs délais.",
-    sent_ko: "Échec de l’envoi. Réessayez ou écrivez‑moi directement.",
+    sent_ko: "Échec de l'envoi. Réessayez ou écrivez‑moi directement.",
 
     theme_label: "Théme",
     lang_label: "Langue",
@@ -161,7 +161,7 @@ const i18n = {
   en: {
     brand: "Karlsefni",
     nav: { home: "Home", services: "Services", portfolio: "Work", about: "About", contact: "Contact" },
-    cta_primary: "Let’s discuss your project",
+    cta_primary: "Let's discuss your project",
     hero_badge: "Freelance Web Developer",
     hero_title_1: "I build ",
     hero_title_em: "modern",
@@ -244,7 +244,7 @@ const i18n = {
     banner_btn: "Tell me about your project",
 
     contact_kicker: "Contact",
-    contact_title: "Let’s talk about your project",
+    contact_title: "Let's talk about your project",
     contact_sub: "Reply within 1 business day. Quick and free audit. Guaranteed follow-up.",
     form_name: "Name",
     form_email: "Email",
@@ -258,7 +258,7 @@ const i18n = {
     footer_legal: "SIRET / Minimal legal notice here.",
 
     sending: "Sending…",
-    sent_ok: "Message sent! I’ll get back to you shortly.",
+    sent_ok: "Message sent! I'll get back to you shortly.",
     sent_ko: "Failed to send. Please retry or email me directly.",
 
     theme_label: "Theme",
@@ -381,7 +381,11 @@ const Nav = ({ t, theme, toggleTheme, lang, toggleLang }) => (
       <div className="flex items-center gap-2">
         <button onClick={toggleLang} aria-label={t.lang_label} className="inline-flex items-center gap-2 rounded-2xl border border-neutral-300 dark:border-neutral-700 px-3 py-2 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-900"><Globe size={16}/> {lang.toUpperCase()}</button>
         <button onClick={toggleTheme} aria-label={t.theme_label} className="inline-flex items-center gap-2 rounded-2xl border border-neutral-300 dark:border-neutral-700 px-3 py-2 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-900">{theme === "dark" ? <Sun size={16}/> : <Moon size={16}/>}</button>
-        <a href="#contact" className="ml-1 inline-flex items-center gap-2 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-sm px-4 py-2 shadow-sm hover:opacity-90">{t.cta_primary} <ArrowRight size={16}/></a>
+        <a href="#contact" className="ml-1 inline-flex items-center gap-2 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-sm px-2 sm:px-4 py-2 shadow-sm hover:opacity-90">
+          <span className="hidden sm:inline">{t.cta_primary}</span>
+          <span className="sm:hidden">Projet</span>
+          <ArrowRight size={16}/>
+        </a>
       </div>
     </nav>
   </header>
