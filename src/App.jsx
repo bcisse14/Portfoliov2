@@ -311,7 +311,7 @@ function ProjectModal({ project, onClose, lang }) {
   }, [project, onClose]);
 
   if (!project) return null;
-  const needLabel = lang === "fr" ? "Besoin:" : "Need:"; // FR only Besoin
+  const needLabel = lang === "fr" ? "Besoin :" : "Need :"; // FR only Besoin
 
   const handleOverlayClick = (e) => { if (e.target === overlayRef.current) onClose(); };
   const onVideoEnded = () => project.capture && setShowCapture(true);
@@ -439,7 +439,7 @@ const Services = ({ t }) => {
 
 const Portfolio = ({ t, lang, onOpen }) => {
   const projects = useMemo(() => t.projects, [t]);
-  const needLabel = lang === 'fr' ? 'Besoin:' : 'Need:'; // FR only Besoin
+  const needLabel = lang === 'fr' ? 'Besoin :' : 'Need :'; // FR only Besoin
   return (
     <section id="portfolio" className="py-16 sm:py-24 bg-neutral-50 dark:bg-neutral-950">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
