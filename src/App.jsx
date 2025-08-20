@@ -185,7 +185,7 @@ const i18n = {
       { icon: "vitrine", type: "Showcase", title: "Showcase website", desc: "Present your business with a clear, fast site focused on conversions (contact, booking).", price: "From €900" },
       { icon: "ecom", type: "E‑commerce", title: "E‑commerce", desc: "Sell online with product management, secure payments, taxes & shipping. Training included.", price: "From €1900" },
       { icon: "apps", type: "Custom app", title: "Custom apps", desc: "Booking, scheduling, admin panels… Web apps tailored to your needs.", price: "On request" },
-      { icon: "maint", type: "Maintenance", title: "Maintenance & optimization", desc: "Updates, fixes, performance tuning, technical SEO, Lighthouse audit & action plan.", price: "From €120/mo" },
+      { icon: "maint", type: "Maintenance", title: "Maintenance & optimization", desc: "Updates, fixes, performance tuning, technical SEO, Lighthouse audit & action plan.", price: "From €120/month" },
     ],
 
     portfolio_kicker: "Work",
