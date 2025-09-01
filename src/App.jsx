@@ -420,17 +420,21 @@ const Services = ({ t }) => {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionTitle kicker={t.services_kicker} title={t.services_title} subtitle={t.services_sub} />
         <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {items.map((item, idx) => { const { icon, title, desc, price, type } = item; const Icon = iconMap[icon] || Code2; return (
-            <motion.div key={idx} variants={container} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 hover:shadow-sm transition-shadow bg-white dark:bg-neutral-900">
-              <div className="w-11 h-11 rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 grid place-content-center mb-4"><Icon size={22} /></div>
-              <h3 className="font-semibold text-neutral-900 dark:text-white">{title}</h3>
-              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">{desc}</p>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs rounded-full border border-neutral-300 dark:border-neutral-700 px-2 py-1 text-neutral-700 dark:text-neutral-200">{type}</span>
-                <span className="text-sm font-medium text-neutral-900 dark:text-white">{price}</span>
-              </div>
-            </motion.div>
-          ); })}
+          {items.map((item, idx) => { 
+            const { icon, title, desc, price, type } = item; 
+            const Icon = iconMap[icon] || Code2; 
+            return (
+              <motion.div key={idx} variants={container} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 hover:shadow-sm transition-shadow bg-white dark:bg-neutral-900 flex flex-col h-full">
+                <div className="w-11 h-11 rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 grid place-content-center mb-4"><Icon size={22} /></div>
+                <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">{title}</h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed flex-1 mb-4">{desc}</p>
+                <div className="flex items-center justify-between mt-auto pt-2">
+                  <span className="text-xs rounded-full border border-neutral-300 dark:border-neutral-700 px-2 py-1 text-neutral-700 dark:text-neutral-200">{type}</span>
+                  <span className="text-sm font-medium text-neutral-900 dark:text-white">{price}</span>
+                </div>
+              </motion.div>
+            ); 
+          })}
         </motion.div>
       </div>
     </section>
