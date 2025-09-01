@@ -144,7 +144,7 @@ const i18n = {
     direct_contact: "Contact direct",
     direct_pref: "Vous pouvez aussi me joindre directement par e‑mail ou via LinkedIn/GitHub.",
 
-    footer_legal: "SIRET / Mentions légales minimales ici.",
+    footer_legal: "SIRET : 990 412 496 00012",
 
     sending: "Envoi…",
     sent_ok: "Message envoyé ! Je vous réponds dans les plus brefs délais.",
@@ -255,7 +255,7 @@ const i18n = {
     direct_contact: "Direct contact",
     direct_pref: "You can also reach me directly via email or LinkedIn/GitHub.",
 
-    footer_legal: "SIRET / Minimal legal notice here.",
+    footer_legal: "SIRET : 990 412 496 00012",
 
     sending: "Sending…",
     sent_ok: "Message sent! I'll get back to you shortly.",
