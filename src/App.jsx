@@ -333,7 +333,6 @@ function ProjectModal({ project, onClose, lang }) {
               </video>
               <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">{lang === "fr" ? "Regardez la vidéo, la capture utile apparaitra après la lecture." : "Watch the video — the important capture will appear after the video."}</p>
               <div className="mt-2 flex gap-2">
-                <button onClick={() => videoRef.current?.play()} className="px-3 py-2 rounded-md border">Play</button>
                 {project.capture && (
                   <button onClick={() => setShowCapture((s) => !s)} className="px-3 py-2 rounded-md border">{showCapture ? (lang === "fr" ? "Cacher la capture" : "Hide capture") : (lang === "fr" ? "Afficher la capture" : "Show capture")}</button>
                 )}
@@ -372,7 +371,8 @@ const Nav = ({ t, theme, toggleTheme, lang, toggleLang }) => (
   <header className="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-neutral-950/70 border-b border-neutral-200 dark:border-neutral-800">
     <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#home" className="font-semibold text-lg tracking-tight text-neutral-900 dark:text-white">{t.brand}</a>
-      <div className="hidden md:flex items-center gap-6 text-sm">
+      <div className="flex items-center gap-6 text-sm">
+        <a href="#home" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.home}</a>
         <a href="#services" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.services}</a>
         <a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.portfolio}</a>
         <a href="#about" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.about}</a>
@@ -429,8 +429,8 @@ const Services = ({ t }) => {
                 <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">{title}</h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed flex-1 mb-4">{desc}</p>
                 <div className="flex items-center justify-between mt-auto pt-2">
-                  <span className="text-xs rounded-full border border-neutral-300 dark:border-neutral-700 px-2 py-1 text-neutral-700 dark:text-neutral-200">{type}</span>
-                  <span className="text-sm font-medium text-neutral-900 dark:text-white">{price}</span>
+                  <span className="text-xs rounded-full border border-neutral-300 dark:border-neutral-700 px-2 py-1 text-neutral-700 dark:text-neutral-200 flex-shrink-0">{type}</span>
+                  <span className="text-sm font-medium text-neutral-900 dark:text-white text-right ml-2 flex-shrink-0">{price}</span>
                 </div>
               </motion.div>
             ); 
@@ -573,7 +573,7 @@ const Contact = ({ t, lang }) => {
 const Footer = ({ t }) => (
   <footer className="border-t border-neutral-200 dark:border-neutral-800 py-10 bg-white dark:bg-neutral-950">
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p><div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300"><a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a><a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a><a href="#portfolio" className="hover:text-neutral-900 dark:hover;text-white">{t.nav.portfolio}</a><a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a></div></div>
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p><div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300"><a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a><a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a><a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.portfolio}</a><a href="#about" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.about}</a><a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a></div></div>
       <p className="mt-4 text-xs text-neutral-500 dark:text-neutral-400">{t.footer_legal}</p>
     </div>
   </footer>
