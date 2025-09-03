@@ -371,8 +371,7 @@ const Nav = ({ t, theme, toggleTheme, lang, toggleLang }) => (
   <header className="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-neutral-950/70 border-b border-neutral-200 dark:border-neutral-800">
     <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#home" className="font-semibold text-lg tracking-tight text-neutral-900 dark:text-white">{t.brand}</a>
-      <div className="flex items-center gap-6 text-sm">
-        <a href="#home" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.home}</a>
+      <div className="hidden md:flex items-center gap-6 text-sm">
         <a href="#services" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.services}</a>
         <a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.portfolio}</a>
         <a href="#about" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.about}</a>
@@ -573,7 +572,7 @@ const Contact = ({ t, lang }) => {
 const Footer = ({ t }) => (
   <footer className="border-t border-neutral-200 dark:border-neutral-800 py-10 bg-white dark:bg-neutral-950">
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p><div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300"><a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a><a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a><a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.portfolio}</a><a href="#about" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.about}</a><a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a></div></div>
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p><div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300"><a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a><a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a><a href="#portfolio" className="hover:text-neutral-900 dark:hover;text-white">{t.nav.portfolio}</a><a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a></div></div>
       <p className="mt-4 text-xs text-neutral-500 dark:text-neutral-400">{t.footer_legal}</p>
     </div>
   </footer>
