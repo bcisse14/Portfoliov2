@@ -10,6 +10,8 @@ import HospitalVideo from "./assets/Hospital.mp4";
 import HospitalPoster from "./assets/Hospital_poster.png";
 import MyoptiqueVideo from "./assets/Myoptique.mp4";
 import MyoptiquePoster from "./assets/Myoptique_poster.png";
+import BudgetVideo from "./assets/Budget.mp4";
+import BudgetPoster from "./assets/Budget_poster.png";
 
 import {
   Code2,
@@ -76,6 +78,7 @@ const i18n = {
     portfolio_title: "Projets réalisés",
     portfolio_sub: "Une sélection courte. Chaque projet répond à un besoin précis avec une solution simple et efficace.",
     projects: [
+      // Ligne 1
       {
         id: "booking",
         title: "Plateforme de prise de rendez‑vous",
@@ -98,6 +101,18 @@ const i18n = {
         video: MyoptiqueVideo,
         poster: MyoptiquePoster,
         link: "#",
+      },
+      // Ligne 2
+      {
+        id: "budget",
+        title: "Application de gestion de budget",
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1480&auto=format&fit=crop",
+        need: "Suivi des dépenses et gestion budgétaire personnelle",
+        solution: "Application web permettant de créer des budgets et suivre les dépenses. Back‑end : Symfony + MySQL.",
+        tags: ["React", "Symfony", "MySQL"],
+        video: BudgetVideo,
+        poster: BudgetPoster,
+        link: "https://hess-cej.vercel.app/",
       },
       {
         id: "hospital",
@@ -192,6 +207,7 @@ const i18n = {
     portfolio_title: "Selected projects",
     portfolio_sub: "A short selection. Each project solves a clear need with a simple, effective solution.",
     projects: [
+      // Row 1
       {
         id: "booking",
         title: "Online booking platform",
@@ -214,6 +230,18 @@ const i18n = {
         video: MyoptiqueVideo,
         poster: MyoptiquePoster,
         link: "#",
+      },
+      // Row 2
+      {
+        id: "budget",
+        title: "Budget management application",
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1480&auto=format&fit=crop",
+        need: "Personal expense tracking and budget management",
+        solution: "Web application for creating budgets and tracking expenses. Back‑end: Symfony + MySQL.",
+        tags: ["React", "Symfony", "MySQL"],
+        video: BudgetVideo,
+        poster: BudgetPoster,
+        link: "https://hess-cej.vercel.app/",
       },
       {
         id: "hospital",
@@ -351,6 +379,20 @@ function ProjectModal({ project, onClose, lang }) {
             <p className="text-sm text-neutral-700 dark:text-neutral-300"><span className="font-medium">{needLabel}</span> {project.need}</p>
             <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-300"><span className="font-medium">Solution :</span> {project.solution}</p>
             <div className="mt-3 flex flex-wrap gap-2">{project.tags?.map((tag) => (<span key={tag} className="text-xs rounded-full border px-2 py-1">{tag}</span>))}</div>
+            
+            {project.link && project.link !== "#" && (
+              <div className="mt-4">
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 rounded-md text-sm hover:opacity-90 transition-opacity"
+                >
+                  {lang === "fr" ? "Voir le projet en ligne" : "View live project"}
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </motion.div>
@@ -442,12 +484,51 @@ const Services = ({ t }) => {
 
 const Portfolio = ({ t, lang, onOpen }) => {
   const projects = useMemo(() => t.projects, [t]);
-  const needLabel = lang === 'fr' ? 'Besoin :' : 'Need :'; // FR only Besoin
+  const needLabel = lang === 'fr' ? 'Besoin :' : 'Need :';
+  // Regrouper les projets 2 par 2 pour forcer l'affichage 2 puis 2 sur desktop
+  const rows = [];
+  for (let i = 0; i < projects.length; i += 2) {
+    rows.push(projects.slice(i, i + 2));
+  }
   return (
     <section id="portfolio" className="py-16 sm:py-24 bg-neutral-50 dark:bg-neutral-950">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionTitle kicker={t.portfolio_kicker} title={t.portfolio_title} subtitle={t.portfolio_sub} />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="hidden md:block">
+          <div className="space-y-6">
+            {rows.map((row, idx) => (
+              <div key={idx} className="grid md:grid-cols-2 gap-6">
+                {row.map((p) => (
+                  <div key={p.id} role="button" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter' || e.key===' ') onOpen(p); }} onClick={() => onOpen(p)} className="group rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow-sm text-left cursor-pointer focus:outline-none">
+                    <div className="aspect-[16/10] overflow-hidden relative bg-black">
+                      {p.video ? (
+                        <video className="h-full w-full object-cover" src={p.video} preload="metadata" muted playsInline poster={p.poster || ""} aria-hidden="true" />
+                      ) : (
+                        <img src={p.image} alt={p.title} className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" />
+                      )}
+                      {p.video && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                          <div className="flex flex-col items-center gap-2 text-white">
+                            <div className="w-14 h-14 rounded-full grid place-content-center bg-black/50 backdrop-blur"><Play size={28} /></div>
+                            <span className="text-xs">{lang === 'fr' ? 'Vidéo' : 'Video'}</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-semibold text-neutral-900 dark:text-white">{p.title}</h3>
+                      <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300"><span className="font-medium text-neutral-800 dark:text-neutral-200">{needLabel}</span> {p.need}</p>
+                      <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300"><span className="font-medium text-neutral-800 dark:text-neutral-200">Solution : </span>{p.solution}</p>
+                      <div className="mt-3 flex flex-wrap gap-2">{p.tags?.map((t)=>(<span key={t} className="text-xs rounded-full border border-neutral-300 dark:border-neutral-700 px-2 py-1 text-neutral-700 dark:text-neutral-200">{t}</span>))}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Mobile: grid classique */}
+        <div className="md:hidden grid grid-cols-1 gap-6">
           {projects.map((p) => (
             <div key={p.id} role="button" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter' || e.key===' ') onOpen(p); }} onClick={() => onOpen(p)} className="group rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow-sm text-left cursor-pointer focus:outline-none">
               <div className="aspect-[16/10] overflow-hidden relative bg-black">
@@ -456,7 +537,6 @@ const Portfolio = ({ t, lang, onOpen }) => {
                 ) : (
                   <img src={p.image} alt={p.title} className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" />
                 )}
-
                 {p.video && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                     <div className="flex flex-col items-center gap-2 text-white">
