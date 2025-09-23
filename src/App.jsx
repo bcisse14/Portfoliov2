@@ -5,7 +5,6 @@ import emailjs from "@emailjs/browser";
 // Assets (place these files in src/assets)
 import BookingVideo from "./assets/Booking.mp4";
 import BookingPoster from "./assets/Booking_poster.png";
-import BookingCapture from "./assets/Capture_Booking.png";
 import HospitalVideo from "./assets/Hospital.mp4";
 import HospitalPoster from "./assets/Hospital_poster.png";
 import MyoptiqueVideo from "./assets/Myoptique.mp4";
@@ -88,7 +87,7 @@ const i18n = {
         tags: ["React", "Symfony", "Tailwind"],
         video: BookingVideo,
         poster: BookingPoster,
-        capture: BookingCapture,
+  capture: ["/src/assets/screen 1 booking.png", "/src/assets/screen 2 booking.png"],
         link: "#",
       },
       {
@@ -217,7 +216,7 @@ const i18n = {
         tags: ["React", "Symfony", "Tailwind"],
         video: BookingVideo,
         poster: BookingPoster,
-        capture: BookingCapture,
+  capture: ["/src/assets/screen 1 booking.png", "/src/assets/screen 2 booking.png"],
         link: "#",
       },
       {
@@ -332,6 +331,7 @@ function ProjectModal({ project, onClose, lang }) {
     if (!project) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    console.log('ProjectModal opened for', project.id, 'captures=', project.capture);
     setTimeout(() => closeBtnRef.current?.focus(), 80);
     function onKey(e) { if (e.key === "Escape") onClose(); }
     window.addEventListener("keydown", onKey);
@@ -352,26 +352,29 @@ function ProjectModal({ project, onClose, lang }) {
           <button ref={closeBtnRef} onClick={onClose} aria-label="Fermer" className="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800"><X /></button>
         </div>
 
-        <div className="p-4 space-y-4">
+  <div className="p-4 space-y-4 max-h-[80vh] overflow-auto">
           {project.video && (
             <div>
               <video ref={videoRef} onEnded={onVideoEnded} controls className="w-full rounded-md bg-black" poster={project.poster || ""}>
                 <source src={project.video} type="video/mp4" />
                 {"Votre navigateur ne supporte pas la vidéo."}
               </video>
-              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">{lang === "fr" ? "Regardez la vidéo, la capture utile apparaitra après la lecture." : "Watch the video — the important capture will appear after the video."}</p>
+              {/* description removed per request */}
               <div className="mt-2 flex gap-2">
                 {project.capture && (
-                  <button onClick={() => setShowCapture((s) => !s)} className="px-3 py-2 rounded-md border">{showCapture ? (lang === "fr" ? "Cacher la capture" : "Hide capture") : (lang === "fr" ? "Afficher la capture" : "Show capture")}</button>
+                  <button onClick={() => { console.log('toggle captures, before=', project.capture); setShowCapture((s) => !s); }} className="px-3 py-2 rounded-md border">{showCapture ? (lang === "fr" ? "Cacher les captures" : "Hide captures") : (lang === "fr" ? "Afficher les captures" : "Show captures")}</button>
                 )}
               </div>
             </div>
           )}
 
           {project.capture && showCapture && (
-            <div>
-              <img src={project.capture} alt="Capture" className="w-full rounded-md border" />
-              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">{lang === "fr" ? "Capture : utile après la vidéo." : "Capture: relevant after watching the video."}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {(Array.isArray(project.capture) ? project.capture : [project.capture]).map((src, i) => (
+                <div key={i}>
+                  <img src={src} alt={`Capture ${i + 1}`} className="w-full rounded-md border" />
+                </div>
+              ))}
             </div>
           )}
 
@@ -636,7 +639,7 @@ const Contact = ({ t, lang }) => {
 
           <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
             <h3 className="font-semibold text-neutral-900 dark:text-white">{t.direct_contact}</h3>
-            <p className="mt-2 text-neutral-600 dark:text-neutral-300 text-sm">{t.direct_pref}</p>
+            <p className="mt-2 text-neutral-600 dark:text-neutral-300 text-sm">{t.direct_pref} {lang === 'fr' ? (<span>Vous pouvez prendre rendez‑vous directement <a href="https://booking-bc.vercel.app/booking" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">ici</a>.</span>) : (<span>You can book a meeting directly <a href="https://booking-bc.vercel.app/booking" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">here</a>.</span>)}</p>
             <div className="mt-4 flex flex-col gap-3">
               <a href="mailto:cissebafode.pro@gmail.com" className="inline-flex items-center gap-2 hover:opacity-80 text-neutral-700 dark:text-neutral-200"><Mail size={18}/> cissebafode.pro@gmail.com</a>
               <a href="https://github.com/bcisse14" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:opacity-80 text-neutral-700 dark:text-neutral-200"><Github size={18}/> github.com/bcisse14</a>
