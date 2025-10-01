@@ -45,7 +45,7 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
 const i18n = {
   fr: {
     brand: "Karlsefni",
-    nav: { home: "Accueil", services: "Services", portfolio: "Portfolio", about: "À propos", contact: "Contact" },
+  nav: { home: "Accueil", services: "Services", offers: "Offres", portfolio: "Portfolio", about: "À propos", contact: "Contact" },
     cta_primary: "Discutons de votre projet",
     hero_badge: "Développeur Web Freelance",
     hero_title_1: "Je crée des sites ",
@@ -128,7 +128,7 @@ const i18n = {
 
     about_kicker: "À propos",
     about_title: "Fiable, moderne, orienté client",
-    about_sub: "Formé à Epitech, je me spécialise dans la création de sites vitrines et e‑commerce adaptés aux besoins des petites entreprises. Mon approche est simple : comprendre votre activité, livrer rapidement, et optimiser ce qui compte (vitesse, SEO, conversion).",
+  about_sub: "Je m'appelle Bafodé Cissé, j'ai 23 ans. Formé à Epitech, je me spécialise dans la création de sites vitrines et e‑commerce adaptés aux besoins des petites entreprises. J'ai créé Karlsefni afin de mettre à profit mes compétences dans un meilleur environnement. Mon approche est simple : comprendre votre activité, livrer rapidement et optimiser ce qui compte (vitesse, SEO, conversion).",
     about_points: [
       "Communication claire, jalons et livrables hebdomadaires",
       "Code propre (React, Tailwind, bonnes pratiques)",
@@ -145,6 +145,55 @@ const i18n = {
     banner_text: "Disponible pour de nouveaux projets",
     banner_note: " — le premier client bénéficiera d'un tarif préférentiel.",
     banner_btn: "Parlez‑moi de votre projet",
+
+    offers_kicker: "Offres",
+    offers_title: "Packs clefs en main",
+    offers_sub: "Des packs pensés pour lancer ou développer votre activité en ligne rapidement.",
+    packs: {
+      pack_presence: {
+        title: "💻 Pack Présence",
+        price: "900 €",
+        desc: "Idéal pour coachs, indépendants et petites entreprises qui veulent une vitrine professionnelle.",
+        bullets: [
+          "Site vitrine jusqu’à 3 pages (Accueil, Services, Contact)",
+          "Design moderne et responsive (ordinateur + mobile)",
+          "Formulaire de contact et intégration Google Maps",
+          "Optimisation SEO basique (Google, vitesse de chargement)",
+          "Livraison en 7–10 jours",
+          "Bonus : 1 série de corrections incluse.",
+        ],
+      },
+      pack_rdv: {
+        title: "📅 Pack Rendez-vous",
+        price: "1 600 €",
+        desc: "Parfait pour coachs, consultants et formateurs qui veulent gérer leurs rendez-vous en ligne.",
+        bullets: [
+          "Site complet jusqu’à 5 pages (Accueil, À propos, Services, FAQ, Contact)",
+          "Intégration calendrier en ligne (Calendly, Google Agenda)",
+          "CMS simple (vous pouvez changer vos textes et images)",
+          "Optimisation SEO et performance",
+          "Livraison en 10–14 jours",
+          "Bonus : 2 séries de corrections incluses.",
+        ],
+      },
+      pack_premium: {
+        title: "🛒 Pack Premium",
+        price: "2 800 €",
+        desc: "Pour indépendants et petites entreprises qui veulent vendre directement en ligne.",
+        bullets: [
+          "Site complet (jusqu’à 7 pages)",
+          "Intégration boutique (paiement en ligne par Stripe/PayPal)",
+          "Espace client simple (connexion + gestion commandes / rendez-vous)",
+          "Blog ou espace actualités pour publier du contenu",
+          "Formation rapide pour utiliser le site",
+          "Livraison en 2–4 semaines",
+          "Bonus : 3 séries de corrections incluses.",
+        ],
+      },
+      payment_terms: "Modalités de paiement : 30% à la signature, 40% à mi-parcours, 30% à la livraison.",
+  engagement: "Engagement : livraison rapide, communication claire, accompagnement jusqu’à la mise en ligne.",
+      corrections_def: "Chaque série de corrections incluse vous permet de demander un ensemble de modifications regroupées après une livraison. Cela garantit que votre site correspond parfaitement à vos attentes tout en respectant des délais rapides.",
+    },
 
     contact_kicker: "Contact",
     contact_title: "Parlons de votre projet",
@@ -174,7 +223,7 @@ const i18n = {
 
   en: {
     brand: "Karlsefni",
-    nav: { home: "Home", services: "Services", portfolio: "Work", about: "About", contact: "Contact" },
+  nav: { home: "Home", services: "Services", offers: "Offers", portfolio: "Work", about: "About", contact: "Contact" },
     cta_primary: "Let's discuss your project",
     hero_badge: "Freelance Web Developer",
     hero_title_1: "I build ",
@@ -257,7 +306,7 @@ const i18n = {
 
     about_kicker: "About",
     about_title: "Reliable, modern, client‑oriented",
-    about_sub: "Trained at Epitech, I specialize in showcase and e‑commerce websites for small businesses. My approach is simple: understand your business, quick delivery, optimize what matters (speed, SEO, conversion).",
+  about_sub: "My name is Bafodé Cissé, I'm 23 years old. Trained at Epitech, I specialize in showcase and e‑commerce websites for small businesses. I founded Karlsefni to put my skills to use in a better environment. My approach is simple: understand your business, deliver quickly, and optimize what matters (speed, SEO, conversion).",
     about_points: ["Clear communication, weekly milestones & deliverables", "Clean code (React, Tailwind, best practices)", "Measured performance (Lighthouse, Core Web Vitals)", "Continuous deployment (Vercel/Netlify)"],
     stack_label: "Stack",
     stack_value: "React, Symfony, TailwindCSS, API Platform, Stripe",
@@ -269,6 +318,55 @@ const i18n = {
     banner_text: "Available for new projects",
     banner_note: " — first client will get a discounted rate.",
     banner_btn: "Tell me about your project",
+
+    offers_kicker: "Offers",
+    offers_title: "Turnkey packages",
+    offers_sub: "Packages designed to launch or grow your online activity quickly.",
+    packs: {
+      pack_presence: {
+        title: "💻 Presence Pack",
+        price: "€900",
+        desc: "Ideal for coaches, freelancers and small businesses who want a professional showcase.",
+        bullets: [
+          "Showcase site up to 3 pages (Home, Services, Contact)",
+          "Modern responsive design (desktop + mobile)",
+          "Contact form and Google Maps integration",
+          "Basic SEO optimization (Google, loading speed)",
+          "Delivery in 7–10 days",
+          "Bonus: 1 round of corrections included.",
+        ],
+      },
+      pack_rdv: {
+        title: "📅 Booking Pack",
+        price: "€1,600",
+        desc: "Perfect for coaches, consultants and trainers who want to manage online bookings.",
+        bullets: [
+          "Full site up to 5 pages (Home, About, Services, FAQ, Contact)",
+          "Calendar integration (Calendly, Google Calendar)",
+          "Simple CMS (you can change texts and images)",
+          "SEO and performance optimization",
+          "Delivery in 10–14 days",
+          "Bonus: 2 rounds of corrections included.",
+        ],
+      },
+      pack_premium: {
+        title: "🛒 Premium Pack",
+        price: "€2,800",
+        desc: "For freelancers and small businesses who want to sell directly online.",
+        bullets: [
+          "Full site (up to 7 pages)",
+          "Shop integration (online payment via Stripe/PayPal)",
+          "Simple client area (login + manage orders / bookings)",
+          "Blog or news area to publish content",
+          "Quick training to use the site",
+          "Delivery in 2–4 weeks",
+          "Bonus: 3 rounds of corrections included.",
+        ],
+      },
+      payment_terms: "Payment terms: 30% on signature, 40% mid-project, 30% on delivery.",
+      engagement: "Commitment: fast delivery, clear communication, support until launch.",
+      corrections_def: "Each included round of corrections lets you request a grouped set of changes after delivery. This ensures your site matches your expectations while keeping turnaround times short.",
+    },
 
     contact_kicker: "Contact",
     contact_title: "Let's talk about your project",
@@ -418,6 +516,7 @@ const Nav = ({ t, theme, toggleTheme, lang, toggleLang }) => (
       <a href="#home" className="font-semibold text-lg tracking-tight text-neutral-900 dark:text-white">{t.brand}</a>
       <div className="hidden md:flex items-center gap-6 text-sm">
         <a href="#services" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.services}</a>
+        <a href="#offers" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.offers}</a>
         <a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.portfolio}</a>
         <a href="#about" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.about}</a>
         <a href="#contact" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.contact}</a>
@@ -480,6 +579,53 @@ const Services = ({ t }) => {
             ); 
           })}
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Offers = ({ t }) => {
+  const packs = t.packs;
+  return (
+    <section id="offers" className="py-16 sm:py-24 bg-neutral-50 dark:bg-neutral-900">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionTitle kicker={t.offers_kicker} title={t.offers_title} subtitle={t.offers_sub} />
+        <div className="grid md:grid-cols-3 gap-6 mt-6">
+          {[packs.pack_presence, packs.pack_rdv, packs.pack_premium].map((p, i) => {
+            const handleSelect = () => {
+              try {
+                if (typeof document !== 'undefined') {
+                  const sel = document.querySelector('input[name="selected_pack"]');
+                  if (sel) sel.value = p.title;
+                  const langIsFr = document.documentElement.getAttribute('lang') === 'fr';
+                  const message = langIsFr ? `Bonjour, je suis intéressé par le ${p.title}. Merci de me recontacter.` : `Hello, I'm interested in the ${p.title}. Please get back to me.`;
+                  const textarea = document.querySelector('textarea[name="message"]');
+                  if (textarea) { textarea.value = message; textarea.focus(); }
+                  const contactEl = document.getElementById('contact');
+                  if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              } catch (e) {
+                console.warn('Failed to prefill contact form', e);
+              }
+            };
+            const langIsFr = (typeof document !== 'undefined' && document.documentElement.getAttribute('lang') === 'fr');
+            return (
+              <div key={i} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900 flex flex-col">
+                <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">{p.title} <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">{p.price}</span></h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">{p.desc}</p>
+                <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-400 space-y-1 mb-4">{p.bullets.map((b, idx) => (<li key={idx}>{b}</li>))}</ul>
+                <div className="mt-auto">
+                  <button onClick={handleSelect} type="button" className="inline-flex items-center gap-2 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm hover:opacity-90">{langIsFr ? 'Me contacter' : 'Contact me'}</button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-6 text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="mb-1">{packs.payment_terms}</p>
+          <p className="mb-2">{packs.engagement}</p>
+          <p className="text-xs italic">{packs.corrections_def}</p>
+        </div>
       </div>
     </section>
   );
@@ -601,6 +747,29 @@ const Contact = ({ t, lang }) => {
       return;
     }
 
+    // If a pack was selected, populate pack_details hidden input with structured info
+    try {
+      const sel = formRef.current.querySelector('input[name="selected_pack"]');
+      const details = formRef.current.querySelector('input[name="pack_details"]');
+      if (sel && sel.value && details) {
+        // Build a details string from the selected pack using current translations
+        const packKey = sel.value;
+        // packKey is the display title (e.g., "💻 Pack Présence" or "💻 Presence Pack").
+        // Find matching pack in t.packs by comparing titles.
+        const allPacks = [t.packs.pack_presence, t.packs.pack_rdv, t.packs.pack_premium];
+        const found = allPacks.find(p => p.title === packKey);
+        const foundEn = allPacks.find(p => p.title && p.title.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === packKey.replace(/[^a-zA-Z0-9]/g, '').toLowerCase());
+        const pack = found || foundEn || allPacks.find(p => packKey.includes(p.price) || p.title.includes(packKey));
+        if (pack) {
+          const bullets = (pack.bullets || []).map(b => `- ${b}`).join('\n');
+          const detailsStr = `${pack.title} (${pack.price})\n${pack.desc}\n\n${bullets}`;
+          details.value = detailsStr;
+        }
+      }
+    } catch (e) {
+      console.warn('Could not compute pack_details', e);
+    }
+
     // Debug: collect form data
     const formPayload = {};
     new FormData(formRef.current).forEach((v, k) => (formPayload[k] = v));
@@ -629,6 +798,8 @@ const Contact = ({ t, lang }) => {
           <form onSubmit={onSubmit} ref={formRef} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
             <input type="hidden" name="lang" value={lang} />
             <input type="hidden" name="page_url" value={pageUrl} />
+            <input type="hidden" name="selected_pack" value="" />
+            <input type="hidden" name="pack_details" value="" />
             <div className="grid sm:grid-cols-2 gap-4"><div><label className="text-sm text-neutral-600 dark:text-neutral-300">{t.form_name}</label><input type="text" name="name" required className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-200"/></div><div><label className="text-sm text-neutral-600 dark:text-neutral-300">{t.form_email}</label><input type="email" name="email" required className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-200"/></div></div>
             <div className="mt-4"><label className="text-sm text-neutral-600 dark:text-neutral-300">{t.form_message}</label><textarea name="message" rows="5" required placeholder={t.form_placeholder} className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-200"/></div>
             <button type="submit" disabled={status === "loading"} className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-5 py-3 text-sm hover:opacity-90 disabled:opacity-60">{status === "loading" ? t.sending : t.form_submit} <Mail size={18}/></button>
@@ -639,7 +810,7 @@ const Contact = ({ t, lang }) => {
 
           <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
             <h3 className="font-semibold text-neutral-900 dark:text-white">{t.direct_contact}</h3>
-            <p className="mt-2 text-neutral-600 dark:text-neutral-300 text-sm">{t.direct_pref} {lang === 'fr' ? (<span>Vous pouvez prendre rendez‑vous directement <a href="https://booking-bc.vercel.app/booking" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">ici</a> (Les créneaux peuvent prendre du temps à charger).</span>) : (<span>You can book a meeting directly <a href="https://booking-bc.vercel.app/booking" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">here</a> (Slots may take some time to load).</span>)}</p>
+            <p className="mt-2 text-neutral-600 dark:text-neutral-300 text-sm">{t.direct_pref} {lang === 'fr' ? (<span>Vous pouvez prendre rendez‑vous directement <a href="https://calendly.com/cissebafode-pro/30min" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">ici</a>.</span>) : (<span>You can book a meeting directly <a href="https://calendly.com/cissebafode-pro/30min" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">here</a>.</span>)}</p>
             <div className="mt-4 flex flex-col gap-3">
               <a href="mailto:cissebafode.pro@gmail.com" className="inline-flex items-center gap-2 hover:opacity-80 text-neutral-700 dark:text-neutral-200"><Mail size={18}/> cissebafode.pro@gmail.com</a>
               <a href="https://github.com/bcisse14" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:opacity-80 text-neutral-700 dark:text-neutral-200"><Github size={18}/> github.com/bcisse14</a>
@@ -655,7 +826,16 @@ const Contact = ({ t, lang }) => {
 const Footer = ({ t }) => (
   <footer className="border-t border-neutral-200 dark:border-neutral-800 py-10 bg-white dark:bg-neutral-950">
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p><div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300"><a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a><a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a><a href="#portfolio" className="hover:text-neutral-900 dark:hover;text-white">{t.nav.portfolio}</a><a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a></div></div>
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+        <p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p>
+        <div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300">
+          <a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a>
+          <a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a>
+          <a href="#offers" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.offers}</a>
+          <a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.portfolio}</a>
+          <a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a>
+        </div>
+      </div>
       <p className="mt-4 text-xs text-neutral-500 dark:text-neutral-400">{t.footer_legal}</p>
     </div>
   </footer>
@@ -711,6 +891,7 @@ export default function App() {
       <Nav t={t} theme={theme} toggleTheme={toggleTheme} lang={lang} toggleLang={toggleLang} />
       <Hero t={t} />
       <Services t={t} />
+  <Offers t={t} />
       <Portfolio t={t} lang={lang} onOpen={openProject} />
       <About t={t} />
       <Banner t={t} />
