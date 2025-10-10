@@ -29,14 +29,14 @@ function Card({ item, viewLabel }) {
           <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">{item.desc}</p>
         )}
       </div>
-      {/* Hover overlay with CTA */}
-      <div className="pointer-events-none absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="pointer-events-auto mb-5">
+      {/* Hover overlay with CTA (centered) */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="pointer-events-auto">
           <a
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-2xl bg-white text-neutral-900 px-4 py-2 text-sm font-medium shadow hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-2xl bg-white text-neutral-900 px-4 py-2 text-sm font-medium shadow-lg hover:opacity-90"
           >
             {viewLabel}
           </a>
