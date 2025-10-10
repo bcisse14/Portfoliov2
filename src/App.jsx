@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 // Assets (place these files in src/assets)
@@ -11,6 +11,8 @@ import MyoptiqueVideo from "./assets/Myoptique.mp4";
 import MyoptiquePoster from "./assets/Myoptique_poster.png";
 import BudgetVideo from "./assets/Budget.mp4";
 import BudgetPoster from "./assets/Budget_poster.png";
+import HotelDemoImg from "./assets/hotel_demo.png";
+import ImmoDemoImg from "./assets/immo_demo.png";
 
 import {
   Code2,
@@ -30,6 +32,7 @@ import {
   Play,
 } from "lucide-react";
 import PortfolioCarousel from "./components/PortfolioCarousel";
+import LatestWorks from "./components/LatestWorks";
 
 // ------------------------------------------------------
 // Portfolio Freelance – React + Tailwind + Framer Motion
@@ -77,6 +80,27 @@ const i18n = {
     portfolio_kicker: "Portfolio",
     portfolio_title: "Projets réalisés",
     portfolio_sub: "Une sélection courte. Chaque projet répond à un besoin précis avec une solution simple et efficace.",
+    // Latest works section
+    latest_kicker: "Nouveau",
+    latest_title: "Mes dernières réalisations",
+    latest_sub: "Deux démos récentes hébergées en ligne.",
+    view_site: "Voir le site",
+    latest_items: [
+      {
+        id: "hotel-demo",
+        title: "Démo site de réservation d'hôtel",
+        desc: "Page d'accueil avec barre de recherche (dates, personnes) et mise en avant des chambres.",
+        url: "https://karlsefni-hotel.vercel.app/",
+        img: HotelDemoImg,
+      },
+      {
+        id: "immo-demo",
+        title: "Démo site d'agence immobilière",
+        desc: "Hero avec formulaire de recherche (ville, type, budget) et CTA estimation.",
+        url: "https://karlsefni-immobilier.vercel.app/",
+        img: ImmoDemoImg,
+      },
+    ],
     projects: [
       // Ligne 1
       {
@@ -255,6 +279,27 @@ const i18n = {
     portfolio_kicker: "Work",
     portfolio_title: "Selected projects",
     portfolio_sub: "A short selection. Each project solves a clear need with a simple, effective solution.",
+    // Latest works section
+    latest_kicker: "New",
+    latest_title: "Latest work",
+    latest_sub: "Two fresh demos available online.",
+    view_site: "Visit site",
+    latest_items: [
+      {
+        id: "hotel-demo",
+        title: "Hotel booking demo",
+        desc: "Landing with search bar (dates, guests) and featured rooms.",
+        url: "https://karlsefni-hotel.vercel.app/",
+        img: HotelDemoImg,
+      },
+      {
+        id: "immo-demo",
+        title: "Real‑estate agency demo",
+        desc: "Hero + search (city, type, budget) and a call‑to‑action for free estimate.",
+        url: "https://karlsefni-immobilier.vercel.app/",
+        img: ImmoDemoImg,
+      },
+    ],
     projects: [
       // Row 1
       {
@@ -505,9 +550,9 @@ function ProjectModal({ project, onClose, lang }) {
 // Smaller components reused from previous version (Hero, Services, About, Contact, Footer) adapted to accept lang where needed
 const SectionTitle = ({ kicker, title, subtitle }) => (
   <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-    {kicker && <motion.p variants={container} className="uppercase tracking-wider text-sm text-neutral-500 dark:text-neutral-400">{kicker}</motion.p>}
-    <motion.h2 variants={container} className="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white">{title}</motion.h2>
-    {subtitle && <motion.p variants={container} className="mt-3 text-neutral-600 dark:text-neutral-300 leading-relaxed">{subtitle}</motion.p>}
+    {kicker && <Motion.p variants={container} className="uppercase tracking-wider text-sm text-neutral-500 dark:text-neutral-400">{kicker}</Motion.p>}
+    <Motion.h2 variants={container} className="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white">{title}</Motion.h2>
+    {subtitle && <Motion.p variants={container} className="mt-3 text-neutral-600 dark:text-neutral-300 leading-relaxed">{subtitle}</Motion.p>}
   </div>
 );
 
@@ -539,19 +584,19 @@ const Hero = ({ t }) => (
   <section id="home" className="relative overflow-hidden">
     <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white to-neutral-50 dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-900" />
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-      <motion.div variants={stagger} initial="hidden" animate="show" className="grid md:grid-cols-2 gap-10 items-center">
-        <motion.div variants={container}>
+      <Motion.div variants={stagger} initial="hidden" animate="show" className="grid md:grid-cols-2 gap-10 items-center">
+        <Motion.div variants={container}>
           <p className="uppercase tracking-wider text-xs text-neutral-500 dark:text-neutral-400 mb-3">{t.hero_badge}</p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-neutral-900 dark:text-white">{t.hero_title_1}<span className="underline decoration-4 decoration-neutral-900 dark:decoration-white">{t.hero_title_em}</span>{t.hero_title_2}</h1>
           <p className="mt-5 text-neutral-600 dark:text-neutral-300 max-w-xl">{t.hero_sub}</p>
           <div className="mt-7 flex flex-wrap items-center gap-3"><a href="#contact" className="inline-flex items-center gap-2 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-5 py-3 text-sm shadow-sm hover:opacity-90">{t.cta_primary} <ArrowRight size={18}/></a><a href="#portfolio" className="inline-flex items-center gap-2 rounded-2xl border border-neutral-300 dark:border-neutral-700 px-5 py-3 text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900">{t.hero_browse}</a></div>
           <div className="mt-8 flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400"><div className="flex items-center gap-2"><CheckCircle2 size={18}/> {t.bullet_fast}</div><div className="flex items-center gap-2"><CheckCircle2 size={18}/> {t.bullet_seo}</div><div className="flex items-center gap-2"><CheckCircle2 size={18}/> {t.bullet_resp}</div></div>
-        </motion.div>
-        <motion.div variants={container} className="relative h-56 sm:h-72 md:h-96 rounded-3xl bg-gradient-to-tr from-neutral-900 to-neutral-700 dark:from-neutral-800 dark:to-neutral-600">
+        </Motion.div>
+        <Motion.div variants={container} className="relative h-56 sm:h-72 md:h-96 rounded-3xl bg-gradient-to-tr from-neutral-900 to-neutral-700 dark:from-neutral-800 dark:to-neutral-600">
           <div className="absolute inset-0 rounded-3xl opacity-20 bg-[radial-gradient(circle_at_30%_30%,white,transparent_35%),radial-gradient(circle_at_70%_70%,white,transparent_35%)]"/>
           <div className="absolute bottom-4 left-4 right-4 grid grid-cols-2 sm:grid-cols-4 gap-3">{t.chips.map((chip,i)=>(<div key={i} className="rounded-2xl bg-white/10 border border-white/20 backdrop-blur text-white p-3"><p className="text-xs uppercase tracking-wide opacity-80">{chip.label}</p><p className="text-sm font-medium">{chip.value}</p></div>))}</div>
-        </motion.div>
-      </motion.div>
+        </Motion.div>
+      </Motion.div>
     </div>
   </section>
 );
@@ -563,12 +608,12 @@ const Services = ({ t }) => {
     <section id="services" className="py-16 sm:py-24 bg-white dark:bg-neutral-950">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionTitle kicker={t.services_kicker} title={t.services_title} subtitle={t.services_sub} />
-        <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <Motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {items.map((item, idx) => { 
             const { icon, title, desc, price, type } = item; 
             const Icon = iconMap[icon] || Code2; 
             return (
-              <motion.div key={idx} variants={container} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 hover:shadow-sm transition-shadow bg-white dark:bg-neutral-900 flex flex-col h-full">
+              <Motion.div key={idx} variants={container} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 hover:shadow-sm transition-shadow bg-white dark:bg-neutral-900 flex flex-col h-full">
                 <div className="w-11 h-11 rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 grid place-content-center mb-4"><Icon size={22} /></div>
                 <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">{title}</h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed flex-1 mb-4">{desc}</p>
@@ -576,10 +621,10 @@ const Services = ({ t }) => {
                   <span className="text-xs rounded-full border border-neutral-300 dark:border-neutral-700 px-2 py-1 text-neutral-700 dark:text-neutral-200 flex-shrink-0">{type}</span>
                   <span className="text-sm font-medium text-neutral-900 dark:text-white text-right ml-2 flex-shrink-0">{price}</span>
                 </div>
-              </motion.div>
+              </Motion.div>
             ); 
           })}
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );
@@ -590,7 +635,7 @@ const Offers = ({ t }) => {
   return (
     <section id="offers" className="py-16 sm:py-24 bg-neutral-50 dark:bg-neutral-900">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionTitle kicker={t.offers_kicker} title={t.offers_title} subtitle={t.offers_sub} />
+  <SectionTitle kicker={t.offers_kicker} title={t.offers_title} subtitle={t.offers_sub} />
         <div className="grid md:grid-cols-3 gap-6 mt-6">
           {[packs.pack_presence, packs.pack_rdv, packs.pack_premium].map((p, i) => {
             const handleSelect = () => {
@@ -642,7 +687,7 @@ const Portfolio = ({ t, lang, onOpen }) => {
   return (
     <section id="portfolio" className="py-16 sm:py-24 bg-neutral-50 dark:bg-neutral-950">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionTitle kicker={t.portfolio_kicker} title={t.portfolio_title} subtitle={t.portfolio_sub} />
+  <SectionTitle kicker={t.portfolio_kicker} title={t.portfolio_title} subtitle={t.portfolio_sub} />
         {/* Carousel for all screen sizes (replaces previous desktop grid) */}
         <div>
           <PortfolioCarousel projects={projects} lang={lang} onOpen={onOpen} />
@@ -658,13 +703,13 @@ const About = ({ t }) => (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <SectionTitle kicker={t.about_kicker} title={t.about_title} subtitle={t.about_sub} />
       <div className="grid md:grid-cols-2 gap-8 items-center">
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+        <Motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <ul className="space-y-3 text-neutral-700 dark:text-neutral-300">{t.about_points.map((line)=> (<li key={line} className="flex items-start gap-3"><CheckCircle2 className="mt-0.5" size={20}/><span>{line}</span></li>))}</ul>
-        </motion.div>
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="rounded-3xl border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
+        </Motion.div>
+        <Motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="rounded-3xl border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
           <div className="flex items-center gap-3"><div className="w-12 h-12 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 grid place-content-center"><Code2/></div><div><p className="text-sm text-neutral-500 dark:text-neutral-400">{t.stack_label}</p><p className="font-medium text-neutral-900 dark:text-white">{t.stack_value}</p></div></div>
           <div className="mt-4 grid sm:grid-cols-2 gap-4 text-sm"><div className="rounded-xl border border-neutral-200 dark:border-neutral-800 p-4 bg-white dark:bg-neutral-900"><p className="text-neutral-500 dark:text-neutral-400">{t.focus_label}</p><p className="font-medium text-neutral-900 dark:text-white">{t.focus_value}</p></div><div className="rounded-xl border border-neutral-200 dark:border-neutral-800 p-4 bg-white dark:bg-neutral-900"><p className="text-neutral-500 dark:text-neutral-400">{t.availability_label}</p><p className="font-medium text-neutral-900 dark:text-neutral-400">{t.availability_value}</p></div></div>
-        </motion.div>
+        </Motion.div>
       </div>
     </div>
   </section>
@@ -836,6 +881,7 @@ export default function App() {
       <Hero t={t} />
       <Services t={t} />
   <Offers t={t} />
+    <LatestWorks t={t} />
       <Portfolio t={t} lang={lang} onOpen={openProject} />
       <About t={t} />
       <Banner t={t} />
