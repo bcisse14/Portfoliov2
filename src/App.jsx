@@ -490,7 +490,7 @@ function ProjectModal({ project, onClose, lang }) {
 
   return (
     <div ref={overlayRef} onMouseDown={handleOverlayClick} className="fixed inset-0 z-50 grid place-items-center bg-black/60">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="max-w-5xl w-[95%] md:w-4xl bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+      <Motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="max-w-5xl w-[95%] md:w-4xl bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-start justify-between p-4 border-b border-neutral-200 dark:border-neutral-800">
           <h3 className="font-semibold text-lg">{project.title}</h3>
           <button ref={closeBtnRef} onClick={onClose} aria-label="Fermer" className="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800"><X /></button>
@@ -542,7 +542,7 @@ function ProjectModal({ project, onClose, lang }) {
             )}
           </div>
         </div>
-      </motion.div>
+      </Motion.div>
     </div>
   );
 }
