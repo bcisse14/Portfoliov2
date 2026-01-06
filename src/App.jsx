@@ -49,7 +49,7 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
 const i18n = {
   fr: {
     brand: "Karlsefni",
-  nav: { home: "Accueil", services: "Services", offers: "Offres", portfolio: "Portfolio", about: "À propos", contact: "Contact" },
+  nav: { home: "Accueil", services: "Services", portfolio: "Portfolio", about: "À propos", contact: "Contact" },
     cta_primary: "Discutons de votre projet",
     hero_badge: "Développeur Web Freelance",
     hero_title_1: "Je crée des sites ",
@@ -68,11 +68,11 @@ const i18n = {
     bullet_resp: "Responsive",
 
     services_kicker: "Services",
-    services_title: "Des offres claires, pensées pour les petites entreprises",
-    services_sub: "Je vous aide à lancer ou moderniser votre présence en ligne avec des packs simples et efficaces.",
+    services_title: "Des services clairs, pensés pour les petites entreprises",
+    services_sub: "Je vous aide à lancer ou moderniser votre présence en ligne. Tout est sur devis, sauf la maintenance.",
     service_cards: [
-      { icon: "vitrine", type: "Vitrine", title: "Site vitrine", desc: "Présentez votre activité avec un site clair et rapide orienté conversion (contact, prise de rendez‑vous).", price: "À partir de 900€" },
-      { icon: "ecom", type: "E‑commerce", title: "E‑commerce", desc: "Vendez en ligne avec gestion produits, paiements sécurisés, taxes et shipping. Formation incluse.", price: "À partir de 1900€" },
+      { icon: "vitrine", type: "Vitrine", title: "Site vitrine", desc: "Présentez votre activité avec un site clair et rapide orienté conversion (contact, prise de rendez‑vous).", price: "Sur devis" },
+      { icon: "ecom", type: "E‑commerce", title: "E‑commerce", desc: "Vendez en ligne avec gestion produits, paiements sécurisés, taxes et shipping. Formation incluse.", price: "Sur devis" },
       { icon: "apps", type: "Application sur mesure", title: "Apps sur mesure", desc: "Réservation, agenda, back‑office… Développement d'applications web adaptées à vos besoins.", price: "Sur devis" },
       { icon: "maint", type: "Maintenance", title: "Maintenance & optimisation", desc: "Mises à jour, correctifs, performances, SEO technique, audit Lighthouse et plan d'action.", price: "À partir de 120€/mois" },
     ],
@@ -248,7 +248,7 @@ const i18n = {
 
   en: {
     brand: "Karlsefni",
-  nav: { home: "Home", services: "Services", offers: "Offers", portfolio: "Work", about: "About", contact: "Contact" },
+  nav: { home: "Home", services: "Services", portfolio: "Work", about: "About", contact: "Contact" },
     cta_primary: "Let's discuss your project",
     hero_badge: "Freelance Web Developer",
     hero_title_1: "I build ",
@@ -267,11 +267,11 @@ const i18n = {
     bullet_resp: "Responsive",
 
     services_kicker: "Services",
-    services_title: "Clear offers tailored for small businesses",
-    services_sub: "I help you launch or modernize your online presence with simple, effective packs.",
+    services_title: "Clear services tailored for small businesses",
+    services_sub: "I help you launch or modernize your online presence. Everything is quoted (except maintenance).",
     service_cards: [
-      { icon: "vitrine", type: "Showcase", title: "Showcase website", desc: "Present your business with a clear, fast site focused on conversions (contact, booking).", price: "From €900" },
-      { icon: "ecom", type: "E‑commerce", title: "E‑commerce", desc: "Sell online with product management, secure payments, taxes & shipping. Training included.", price: "From €1900" },
+      { icon: "vitrine", type: "Showcase", title: "Showcase website", desc: "Present your business with a clear, fast site focused on conversions (contact, booking).", price: "On request" },
+      { icon: "ecom", type: "E‑commerce", title: "E‑commerce", desc: "Sell online with product management, secure payments, taxes & shipping. Training included.", price: "On request" },
       { icon: "apps", type: "Custom app", title: "Custom apps", desc: "Booking, scheduling, admin panels… Web apps tailored to your needs.", price: "On request" },
       { icon: "maint", type: "Maintenance", title: "Maintenance & optimization", desc: "Updates, fixes, performance tuning, technical SEO, Lighthouse audit & action plan.", price: "From €120/month" },
     ],
@@ -562,7 +562,6 @@ const Nav = ({ t, theme, toggleTheme, lang, toggleLang }) => (
       <a href="#home" className="font-semibold text-lg tracking-tight text-neutral-900 dark:text-white">{t.brand}</a>
       <div className="hidden md:flex items-center gap-6 text-sm">
         <a href="#services" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.services}</a>
-        <a href="#offers" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.offers}</a>
         <a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.portfolio}</a>
         <a href="#about" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.about}</a>
         <a href="#contact" className="hover:text-neutral-900 dark:hover:text-white text-neutral-600 dark:text-neutral-300">{t.nav.contact}</a>
@@ -630,53 +629,6 @@ const Services = ({ t }) => {
   );
 };
 
-const Offers = ({ t }) => {
-  const packs = t.packs;
-  return (
-    <section id="offers" className="py-16 sm:py-24 bg-neutral-50 dark:bg-neutral-900">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-  <SectionTitle kicker={t.offers_kicker} title={t.offers_title} subtitle={t.offers_sub} />
-        <div className="grid md:grid-cols-3 gap-6 mt-6">
-          {[packs.pack_presence, packs.pack_rdv, packs.pack_premium].map((p, i) => {
-            const handleSelect = () => {
-              try {
-                if (typeof document !== 'undefined') {
-                  const sel = document.querySelector('input[name="selected_pack"]');
-                  if (sel) sel.value = p.title;
-                  const langIsFr = document.documentElement.getAttribute('lang') === 'fr';
-                  const message = langIsFr ? `Bonjour, je suis intéressé par le ${p.title}. Merci de me recontacter.` : `Hello, I'm interested in the ${p.title}. Please get back to me.`;
-                  const textarea = document.querySelector('textarea[name="message"]');
-                  if (textarea) { textarea.value = message; textarea.focus(); }
-                  const contactEl = document.getElementById('contact');
-                  if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              } catch (e) {
-                console.warn('Failed to prefill contact form', e);
-              }
-            };
-            const langIsFr = (typeof document !== 'undefined' && document.documentElement.getAttribute('lang') === 'fr');
-            return (
-              <div key={i} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900 flex flex-col">
-                <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">{p.title} <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">{p.price}</span></h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">{p.desc}</p>
-                <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-400 space-y-1 mb-4">{p.bullets.map((b, idx) => (<li key={idx}>{b}</li>))}</ul>
-                <div className="mt-auto">
-                  <button onClick={handleSelect} type="button" className="inline-flex items-center gap-2 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm hover:opacity-90">{langIsFr ? 'Me contacter' : 'Contact me'}</button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="mt-6 text-sm text-neutral-600 dark:text-neutral-400">
-          <p className="mb-1">{packs.payment_terms}</p>
-          <p className="mb-2">{packs.engagement}</p>
-          <p className="text-xs italic">{packs.corrections_def}</p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Portfolio = ({ t, lang, onOpen }) => {
   const projects = useMemo(() => t.projects, [t]);
   // Regrouper les projets 2 par 2 pour forcer l'affichage 2 puis 2 sur desktop
@@ -736,29 +688,6 @@ const Contact = ({ t, lang }) => {
       return;
     }
 
-    // If a pack was selected, populate pack_details hidden input with structured info
-    try {
-      const sel = formRef.current.querySelector('input[name="selected_pack"]');
-      const details = formRef.current.querySelector('input[name="pack_details"]');
-      if (sel && sel.value && details) {
-        // Build a details string from the selected pack using current translations
-        const packKey = sel.value;
-        // packKey is the display title (e.g., "💻 Pack Présence" or "💻 Presence Pack").
-        // Find matching pack in t.packs by comparing titles.
-        const allPacks = [t.packs.pack_presence, t.packs.pack_rdv, t.packs.pack_premium];
-        const found = allPacks.find(p => p.title === packKey);
-        const foundEn = allPacks.find(p => p.title && p.title.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === packKey.replace(/[^a-zA-Z0-9]/g, '').toLowerCase());
-        const pack = found || foundEn || allPacks.find(p => packKey.includes(p.price) || p.title.includes(packKey));
-        if (pack) {
-          const bullets = (pack.bullets || []).map(b => `- ${b}`).join('\n');
-          const detailsStr = `${pack.title} (${pack.price})\n${pack.desc}\n\n${bullets}`;
-          details.value = detailsStr;
-        }
-      }
-    } catch (e) {
-      console.warn('Could not compute pack_details', e);
-    }
-
     // Debug: collect form data
     const formPayload = {};
     new FormData(formRef.current).forEach((v, k) => (formPayload[k] = v));
@@ -787,8 +716,6 @@ const Contact = ({ t, lang }) => {
           <form onSubmit={onSubmit} ref={formRef} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
             <input type="hidden" name="lang" value={lang} />
             <input type="hidden" name="page_url" value={pageUrl} />
-            <input type="hidden" name="selected_pack" value="" />
-            <input type="hidden" name="pack_details" value="" />
             <div className="grid sm:grid-cols-2 gap-4"><div><label className="text-sm text-neutral-600 dark:text-neutral-300">{t.form_name}</label><input type="text" name="name" required className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-200"/></div><div><label className="text-sm text-neutral-600 dark:text-neutral-300">{t.form_email}</label><input type="email" name="email" required className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-200"/></div></div>
             <div className="mt-4"><label className="text-sm text-neutral-600 dark:text-neutral-300">{t.form_message}</label><textarea name="message" rows="5" required placeholder={t.form_placeholder} className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-200"/></div>
             <button type="submit" disabled={status === "loading"} className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-5 py-3 text-sm hover:opacity-90 disabled:opacity-60">{status === "loading" ? t.sending : t.form_submit} <Mail size={18}/></button>
@@ -820,7 +747,6 @@ const Footer = ({ t }) => (
         <div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300">
           <a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a>
           <a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a>
-          <a href="#offers" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.offers}</a>
           <a href="#portfolio" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.portfolio}</a>
           <a href="#contact" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.contact}</a>
         </div>
@@ -880,7 +806,6 @@ export default function App() {
       <Nav t={t} theme={theme} toggleTheme={toggleTheme} lang={lang} toggleLang={toggleLang} />
       <Hero t={t} />
       <Services t={t} />
-  <Offers t={t} />
     <LatestWorks t={t} />
       <Portfolio t={t} lang={lang} onOpen={openProject} />
       <About t={t} />
