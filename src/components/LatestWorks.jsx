@@ -15,7 +15,7 @@ function Card({ item, viewLabel }) {
   };
 
   return (
-  <Motion.div variants={container} className="group relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+    <Motion.div variants={container} className="group relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
       <img
         src={item.img}
         onError={fallback}
@@ -28,9 +28,18 @@ function Card({ item, viewLabel }) {
         {item.desc && (
           <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">{item.desc}</p>
         )}
+
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center justify-center gap-2 rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-300 dark:focus:ring-offset-neutral-900"
+        >
+          {viewLabel}
+        </a>
       </div>
       {/* Hover overlay with CTA (centered) */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
         <div className="pointer-events-auto">
           <a
             href={item.url}
