@@ -168,8 +168,32 @@ const i18n = {
     availability_value: "Ouvert aux nouveaux projets",
 
     banner_text: "Disponible pour de nouveaux projets",
-    banner_note: " — le premier client bénéficiera d'un tarif préférentiel.",
+    banner_note: "",
     banner_btn: "Parlez‑moi de votre projet",
+
+    trust_kicker: "Recommandations",
+    trust_title: "Ils m'ont fait confiance",
+    trust_sub: "Quelques retours de clients et collaborateurs.",
+    trust_items: [
+      {
+        id: "ayoub-nefzi",
+        name: "Ayoub Nefzi",
+        meta: "Consultant recrutement Freelance",
+        src: "/trust/ayoub-nefzi.png",
+        alt: "Recommandation LinkedIn d'Ayoub Nefzi",
+        quote:
+          "Je recommande vivement Bafodé pour son excellent travail sur mon site web. Professionnel, à l'écoute et force de proposition, il a livré un résultat de grande qualité, parfaitement conforme à mes attentes. Son expertise technique en développement web, alliée à une vraie rigueur et un sens du détail, garantit un résultat de grande qualité.",
+      },
+      {
+        id: "souleymane-bah",
+        name: "Souleymane BAH",
+        meta: "Sies‑InserSup",
+        src: "/trust/souleymane-bah.png",
+        alt: "Recommandation de Souleymane BAH",
+        quote:
+          "J’ai vraiment apprécié travailler avec toi sur ce projet. Ton suivi régulier du versioning, ta bonne compréhension du cahier des charges et des attentes, ainsi que ta maîtrise de Docker pour le déploiement ont fait une vraie différence. Merci pour ton travail et ta bonne humeur. Ravi d’avoir collaboré avec toi !",
+      },
+    ],
 
     offers_kicker: "Offres",
     offers_title: "Packs clefs en main",
@@ -362,8 +386,32 @@ const i18n = {
     availability_value: "Open to new projects",
 
     banner_text: "Available for new projects",
-    banner_note: " — first client will get a discounted rate.",
+    banner_note: "",
     banner_btn: "Tell me about your project",
+
+    trust_kicker: "Recommendations",
+    trust_title: "Trusted by",
+    trust_sub: "A couple of client/collaboration endorsements.",
+    trust_items: [
+      {
+        id: "ayoub-nefzi",
+        name: "Ayoub Nefzi",
+        meta: "Freelance recruitment consultant",
+        src: "/trust/ayoub-nefzi.png",
+        alt: "LinkedIn recommendation screenshot from Ayoub Nefzi",
+        quote:
+          "I highly recommend Bafodé for his excellent work on my website. Professional, attentive, and proactive, he delivered a high-quality result that fully met my expectations. His technical expertise in web development, combined with rigor and attention to detail, guarantees a great outcome.",
+      },
+      {
+        id: "souleymane-bah",
+        name: "Souleymane BAH",
+        meta: "Sies‑InserSup",
+        src: "/trust/souleymane-bah.png",
+        alt: "Recommendation screenshot from Souleymane BAH",
+        quote:
+          "I really enjoyed working with you on this project. Your consistent versioning follow-up, strong understanding of the requirements, and Docker skills for deployment made a real difference. Thanks for your work and great attitude — glad we collaborated!",
+      },
+    ],
 
     offers_kicker: "Offers",
     offers_title: "Turnkey packages",
@@ -667,9 +715,49 @@ const About = ({ t }) => (
   </section>
 );
 
+const TrustedBy = ({ t }) => {
+  const items = useMemo(() => t.trust_items || [], [t]);
+  return (
+    <section id="trust" className="py-16 sm:py-24 bg-neutral-50 dark:bg-neutral-950">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionTitle kicker={t.trust_kicker} title={t.trust_title} subtitle={t.trust_sub} />
+        <Motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid md:grid-cols-2 gap-6">
+          {items.map((it) => (
+            <TrustCard key={it.id} item={it} />
+          ))}
+        </Motion.div>
+      </div>
+    </section>
+  );
+};
+
+function TrustCard({ item }) {
+  const [imgOk, setImgOk] = useState(true);
+  return (
+    <Motion.div variants={container} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 bg-white dark:bg-neutral-900">
+      {imgOk && item.src ? (
+        <img
+          src={item.src}
+          alt={item.alt || item.name}
+          loading="lazy"
+          onError={() => setImgOk(false)}
+          className="w-full h-56 sm:h-64 object-contain rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950"
+        />
+      ) : (
+        <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">“{item.quote}”</p>
+      )}
+
+      <div className="mt-4">
+        <p className="font-semibold text-neutral-900 dark:text-white">{item.name}</p>
+        {item.meta && <p className="text-sm text-neutral-600 dark:text-neutral-300">{item.meta}</p>}
+      </div>
+    </Motion.div>
+  );
+}
+
 const Banner = ({ t }) => (
   <section className="py-12 sm:py-16 bg-neutral-900 text-white dark:bg-neutral-800">
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"><div className="rounded-3xl bg-white/5 border border-white/10 p-6 sm:p-8 text-center"><p className="text-lg font-medium">{t.banner_text}<span className="opacity-90">{t.banner_note}</span></p><div className="mt-5"><a href="#contact" className="inline-flex items-center gap-2 rounded-2xl bg-white text-neutral-900 px-5 py-3 text-sm font-medium hover:opacity-90">{t.banner_btn} <ArrowRight size={18}/></a></div></div></div>
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"><div className="rounded-3xl bg-white/5 border border-white/10 p-6 sm:p-8 text-center"><p className="text-lg font-medium">{t.banner_text}{t.banner_note ? <span className="opacity-90">{t.banner_note}</span> : null}</p><div className="mt-5"><a href="#contact" className="inline-flex items-center gap-2 rounded-2xl bg-white text-neutral-900 px-5 py-3 text-sm font-medium hover:opacity-90">{t.banner_btn} <ArrowRight size={18}/></a></div></div></div>
   </section>
 );
 
@@ -809,6 +897,7 @@ export default function App() {
     <LatestWorks t={t} />
       <Portfolio t={t} lang={lang} onOpen={openProject} />
       <About t={t} />
+      <TrustedBy t={t} />
       <Banner t={t} />
       <Contact t={t} lang={lang} />
       <Footer t={t} />
