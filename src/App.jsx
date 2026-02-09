@@ -595,6 +595,73 @@ function ProjectModal({ project, onClose, lang }) {
   );
 }
 
+function TrustModal({ item, onClose, lang }) {
+  const overlayRef = useRef(null);
+  const closeBtnRef = useRef(null);
+  const [imgOk, setImgOk] = useState(true);
+
+  useEffect(() => {
+    if (!item) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    setImgOk(true);
+    setTimeout(() => closeBtnRef.current?.focus(), 80);
+    function onKey(e) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [item, onClose]);
+
+  if (!item) return null;
+  const closeLabel = lang === "fr" ? "Fermer" : "Close";
+
+  const handleOverlayClick = (e) => {
+    if (e.target === overlayRef.current) onClose();
+  };
+
+  return (
+    <div ref={overlayRef} onMouseDown={handleOverlayClick} className="fixed inset-0 z-50 grid place-items-center bg-black/60">
+      <Motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 20 }}
+        className="max-w-4xl w-[95%] bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-start justify-between p-4 border-b border-neutral-200 dark:border-neutral-800">
+          <div>
+            <h3 className="font-semibold text-lg text-neutral-900 dark:text-white">{item.name}</h3>
+            {item.meta && <p className="text-sm text-neutral-600 dark:text-neutral-300">{item.meta}</p>}
+          </div>
+          <button ref={closeBtnRef} onClick={onClose} aria-label={closeLabel} className="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800">
+            <X />
+          </button>
+        </div>
+
+        <div className="p-4 space-y-4 max-h-[80vh] overflow-auto">
+          {imgOk && item.src ? (
+            <img
+              src={item.src}
+              alt={item.alt || item.name}
+              loading="lazy"
+              onError={() => setImgOk(false)}
+              className="w-full max-h-[60vh] object-contain rounded-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950"
+            />
+          ) : null}
+
+          {item.quote ? (
+            <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">“{item.quote}”</p>
+          ) : null}
+        </div>
+      </Motion.div>
+    </div>
+  );
+}
+
 // Smaller components reused from previous version (Hero, Services, About, Contact, Footer) adapted to accept lang where needed
 const SectionTitle = ({ kicker, title, subtitle }) => (
   <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
@@ -715,7 +782,7 @@ const About = ({ t }) => (
   </section>
 );
 
-const TrustedBy = ({ t }) => {
+const TrustedBy = ({ t, onOpen }) => {
   const items = useMemo(() => t.trust_items || [], [t]);
   return (
     <section id="trust" className="py-16 sm:py-24 bg-neutral-50 dark:bg-neutral-950">
@@ -723,7 +790,7 @@ const TrustedBy = ({ t }) => {
         <SectionTitle kicker={t.trust_kicker} title={t.trust_title} subtitle={t.trust_sub} />
         <Motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid md:grid-cols-2 gap-6">
           {items.map((it) => (
-            <TrustCard key={it.id} item={it} />
+            <TrustCard key={it.id} item={it} onOpen={onOpen} />
           ))}
         </Motion.div>
       </div>
@@ -731,10 +798,16 @@ const TrustedBy = ({ t }) => {
   );
 };
 
-function TrustCard({ item }) {
+function TrustCard({ item, onOpen }) {
   const [imgOk, setImgOk] = useState(true);
   return (
-    <Motion.div variants={container} className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 bg-white dark:bg-neutral-900">
+    <Motion.button
+      type="button"
+      variants={container}
+      onClick={() => onOpen?.(item)}
+      className="text-left w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 bg-white dark:bg-neutral-900 hover:shadow-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-300 dark:focus:ring-offset-neutral-900"
+      aria-label={(item?.alt || item?.name) ?? "Open"}
+    >
       {imgOk && item.src ? (
         <img
           src={item.src}
@@ -751,7 +824,7 @@ function TrustCard({ item }) {
         <p className="font-semibold text-neutral-900 dark:text-white">{item.name}</p>
         {item.meta && <p className="text-sm text-neutral-600 dark:text-neutral-300">{item.meta}</p>}
       </div>
-    </Motion.div>
+    </Motion.button>
   );
 }
 
@@ -889,6 +962,10 @@ export default function App() {
   const openProject = (p) => setSelectedProject(p);
   const closeProject = () => setSelectedProject(null);
 
+  const [selectedTrust, setSelectedTrust] = useState(null);
+  const openTrust = (it) => setSelectedTrust(it);
+  const closeTrust = () => setSelectedTrust(null);
+
   return (
     <main className="font-sans bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
       <Nav t={t} theme={theme} toggleTheme={toggleTheme} lang={lang} toggleLang={toggleLang} />
@@ -897,12 +974,13 @@ export default function App() {
     <LatestWorks t={t} />
       <Portfolio t={t} lang={lang} onOpen={openProject} />
       <About t={t} />
-      <TrustedBy t={t} />
+      <TrustedBy t={t} onOpen={openTrust} />
       <Banner t={t} />
       <Contact t={t} lang={lang} />
       <Footer t={t} />
 
       <ProjectModal project={selectedProject} onClose={closeProject} lang={lang} />
+      <TrustModal item={selectedTrust} onClose={closeTrust} lang={lang} />
     </main>
   );
 }
