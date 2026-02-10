@@ -9,6 +9,8 @@ import HospitalVideo from "./assets/Hospital.mp4";
 import HospitalPoster from "./assets/Hospital_poster.png";
 import MyoptiqueVideo from "./assets/Myoptique.mp4";
 import MyoptiquePoster from "./assets/Myoptique_poster.png";
+import ParfumerieVideo from "./assets/Parfumerie.mp4";
+import ParfumeriePoster from "./assets/Parfumerie_poster.png";
 import BudgetVideo from "./assets/Budget.mp4";
 import BudgetPoster from "./assets/Budget_poster.png";
 import HotelDemoImg from "./assets/hotel_demo.png";
@@ -102,25 +104,24 @@ const i18n = {
       },
     ],
     projects: [
-      // Ligne 1
+      // Ligne 1 (à afficher en premier)
       {
-        id: "booking",
-        title: "Plateforme de prise de rendez‑vous",
-        image: "https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1480&auto=format&fit=crop",
-        need: "Réservation en ligne, gestion d'agenda",
-        solution: "App web avec calendrier synchronisé, Formulaires, Notifications e‑mail, Panneau d'admin. Back‑end : Symfony.",
-        tags: ["React", "Symfony", "Tailwind"],
-        video: BookingVideo,
-        poster: BookingPoster,
-  capture: ["/src/assets/screen 1 booking.png", "/src/assets/screen 2 booking.png"],
+        id: "parfumerie",
+        title: "Boutique e‑commerce — Parfumerie",
+        image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
+        need: "Vendre des parfums en ligne avec une expérience d'achat fluide",
+        solution: "Boutique e‑commerce avec catalogue, fiches produits, panier et tunnel de commande. Vidéo de démonstration incluse.",
+        tags: ["React", "Tailwind", "E‑commerce"],
+        video: ParfumerieVideo,
+        poster: ParfumeriePoster,
         link: "#",
       },
       {
         id: "ecom",
-        title: "Boutique E‑commerce",
+        title: "Myoptique — Boutique e‑commerce",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
-        need: "Vendre en ligne facilement",
-        solution: "Catalogue, Panier, Paiement sécurisé, Gestion des produits via back‑office. Back‑end: Symfony + Stripe.",
+        need: "Vendre en ligne avec un parcours d'achat simple",
+        solution: "Catalogue produits, panier, paiement sécurisé, gestion via back‑office. Back‑end : Symfony + Stripe.",
         tags: ["React", "Symfony", "Stripe"],
         video: MyoptiqueVideo,
         poster: MyoptiquePoster,
@@ -147,6 +148,18 @@ const i18n = {
         tags: ["Symfony", "React", "Tailwind"],
         video: HospitalVideo,
         poster: HospitalPoster,
+        link: "#",
+      },
+      {
+        id: "booking",
+        title: "Plateforme de prise de rendez‑vous",
+        image: "https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1480&auto=format&fit=crop",
+        need: "Réservation en ligne, gestion d'agenda",
+        solution: "App web avec calendrier synchronisé, Formulaires, Notifications e‑mail, Panneau d'admin. Back‑end : Symfony.",
+        tags: ["React", "Symfony", "Tailwind"],
+        video: BookingVideo,
+        poster: BookingPoster,
+  capture: ["/src/assets/screen 1 booking.png", "/src/assets/screen 2 booking.png"],
         link: "#",
       },
     ],
@@ -325,25 +338,24 @@ const i18n = {
       },
     ],
     projects: [
-      // Row 1
+      // Row 1 (show first)
       {
-        id: "booking",
-        title: "Online booking platform",
-        image: "https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1480&auto=format&fit=crop",
-        need: "Online booking, calendar management",
-        solution: "Web app with synced calendar, Forms, Email notifications, Admin panel. Back‑end: Symfony.",
-        tags: ["React", "Symfony", "Tailwind"],
-        video: BookingVideo,
-        poster: BookingPoster,
-  capture: ["/src/assets/screen 1 booking.png", "/src/assets/screen 2 booking.png"],
+        id: "parfumerie",
+        title: "E-commerce store — Perfume shop",
+        image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
+        need: "Sell perfumes online with a smooth buying experience",
+        solution: "E-commerce store with catalog, product pages, cart and checkout flow. Includes a demo video.",
+        tags: ["React", "Tailwind", "E‑commerce"],
+        video: ParfumerieVideo,
+        poster: ParfumeriePoster,
         link: "#",
       },
       {
         id: "ecom",
-        title: "E-commerce store",
+        title: "Myoptique — E-commerce store",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
-        need: "Sell online easily",
-        solution: "Catalog, Cart, Secure checkout, Product management via back-office. Back-end: Symfony + Stripe.",
+        need: "Sell online with a smooth checkout",
+        solution: "Product catalog, cart, secure checkout, back-office management. Back-end: Symfony + Stripe.",
         tags: ["React", "Symfony", "Stripe"],
         video: MyoptiqueVideo,
         poster: MyoptiquePoster,
@@ -370,6 +382,18 @@ const i18n = {
         tags: ["Symfony", "React", "Tailwind"],
         video: HospitalVideo,
         poster: HospitalPoster,
+        link: "#",
+      },
+      {
+        id: "booking",
+        title: "Online booking platform",
+        image: "https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1480&auto=format&fit=crop",
+        need: "Online booking, calendar management",
+        solution: "Web app with synced calendar, Forms, Email notifications, Admin panel. Back‑end: Symfony.",
+        tags: ["React", "Symfony", "Tailwind"],
+        video: BookingVideo,
+        poster: BookingPoster,
+  capture: ["/src/assets/screen 1 booking.png", "/src/assets/screen 2 booking.png"],
         link: "#",
       },
     ],
