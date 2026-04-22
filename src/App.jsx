@@ -13,6 +13,8 @@ import ParfumerieVideo from "./assets/Parfumerie.mp4";
 import ParfumeriePoster from "./assets/Parfumerie_poster.png";
 import BudgetVideo from "./assets/Budget.mp4";
 import BudgetPoster from "./assets/Budget_poster.png";
+import AutomatisationVideo from "./assets/Automatisation.mp4";
+import AutomatisationPoster from "./assets/Automatisation_poster.png";
 import NextAyahVideo from "./assets/NextAyah.mp4";
 import NextAyahPoster from "./assets/NextAyah_poster.png";
 import HotelDemoImg from "./assets/hotel_demo.png";
@@ -137,6 +139,17 @@ const i18n = {
         tags: ["React", "Mobile", "Desktop"],
         video: NextAyahVideo,
         poster: NextAyahPoster,
+        link: "#",
+      },
+      {
+        id: "automatisation",
+        title: "Automatisation — Outils intelligents",
+        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1480&auto=format&fit=crop",
+        need: "Automatiser la prospection commerciale en ciblant des departements precis",
+        solution: "Site d'automatisation pour la prospection avec recherche automatique de sites selon le ou les departements selectionnes, afin de trouver des prospects qualifies plus rapidement.",
+        tags: ["React", "Automation", "Dashboard"],
+        video: AutomatisationVideo,
+        poster: AutomatisationPoster,
         link: "#",
       },
       // Ligne 2
@@ -382,6 +395,17 @@ const i18n = {
         tags: ["React", "Mobile", "Desktop"],
         video: NextAyahVideo,
         poster: NextAyahPoster,
+        link: "#",
+      },
+      {
+        id: "automatisation",
+        title: "Automatisation — Smart automation tools",
+        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1480&auto=format&fit=crop",
+        need: "Automate sales prospecting by targeting specific departments",
+        solution: "Automation platform for prospecting with automatic website discovery based on one or multiple selected departments to find qualified leads faster.",
+        tags: ["React", "Automation", "Dashboard"],
+        video: AutomatisationVideo,
+        poster: AutomatisationPoster,
         link: "#",
       },
       // Row 2
