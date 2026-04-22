@@ -17,6 +17,8 @@ import AutomatisationVideo from "./assets/Automatisation.mp4";
 import AutomatisationPoster from "./assets/Automatisation_poster.png";
 import NextAyahVideo from "./assets/NextAyah.mp4";
 import NextAyahPoster from "./assets/NextAyah_poster.png";
+import DisciplineVideo from "./assets/Discipline.mp4";
+import DisciplinePoster from "./assets/Discipline_poster.png";
 import HotelDemoImg from "./assets/hotel_demo.png";
 import ImmoDemoImg from "./assets/immo_demo.png";
 
@@ -150,6 +152,17 @@ const i18n = {
         tags: ["React", "Automation", "Dashboard"],
         video: AutomatisationVideo,
         poster: AutomatisationPoster,
+        link: "#",
+      },
+      {
+        id: "discipline",
+        title: "Discipline : Objectifs quotidiens",
+        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1480&auto=format&fit=crop",
+        need: "Structurer mes journees avec des objectifs clairs a accomplir chaque jour",
+        solution: "Plateforme de discipline quotidienne avec des objectifs chaque jour, un systeme d'XP pour chaque action validee et une progression par niveaux pour rester motive dans la duree.",
+        tags: ["React", "Gamification", "Productivity"],
+        video: DisciplineVideo,
+        poster: DisciplinePoster,
         link: "#",
       },
       // Ligne 2
@@ -406,6 +419,17 @@ const i18n = {
         tags: ["React", "Automation", "Dashboard"],
         video: AutomatisationVideo,
         poster: AutomatisationPoster,
+        link: "#",
+      },
+      {
+        id: "discipline",
+        title: "Discipline : Daily goals",
+        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1480&auto=format&fit=crop",
+        need: "Build a consistent routine with clear goals to complete every day",
+        solution: "Website that gives me daily objectives, lets me earn XP for each completed goal, and level up as I keep progressing.",
+        tags: ["React", "Gamification", "Productivity"],
+        video: DisciplineVideo,
+        poster: DisciplinePoster,
         link: "#",
       },
       // Row 2
