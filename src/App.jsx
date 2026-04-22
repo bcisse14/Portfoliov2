@@ -110,7 +110,7 @@ const i18n = {
       // Ligne 1 (à afficher en premier)
       {
         id: "parfumerie",
-        title: "Boutique e‑commerce — Parfumerie",
+        title: "Boutique e‑commerce : Parfumerie",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
         need: "Vendre des parfums en ligne avec une expérience d'achat fluide",
         solution: "Boutique e‑commerce avec catalogue, fiches produits, panier et tunnel de commande. Vidéo de démonstration incluse.",
@@ -121,7 +121,7 @@ const i18n = {
       },
       {
         id: "ecom",
-        title: "Myoptique — Boutique e‑commerce",
+        title: "Myoptique : Boutique e‑commerce",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
         need: "Vendre en ligne avec un parcours d'achat simple",
         solution: "Catalogue produits, panier, paiement sécurisé, gestion via back‑office. Back‑end : Symfony + Stripe.",
@@ -132,7 +132,7 @@ const i18n = {
       },
       {
         id: "nextayah",
-        title: "NextAyah — Compagnon islamique",
+        title: "NextAyah : Compagnon islamique",
         image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1480&auto=format&fit=crop",
         need: "Réviser et mémoriser ses sourates facilement sur mobile et PC",
         solution: "Compagnon islamique disponible sur mobile et ordinateur pour réviser les sourates avec une interface simple, fluide et adaptée au quotidien.",
@@ -143,7 +143,7 @@ const i18n = {
       },
       {
         id: "automatisation",
-        title: "Automatisation — Outils intelligents",
+        title: "Automatisation : Outils intelligents",
         image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1480&auto=format&fit=crop",
         need: "Automatiser la prospection commerciale en ciblant des departements precis",
         solution: "Site d'automatisation pour la prospection avec recherche automatique de sites selon le ou les departements selectionnes, afin de trouver des prospects qualifies plus rapidement.",
@@ -166,7 +166,7 @@ const i18n = {
       },
       {
         id: "hospital",
-        title: "Centre de santé — Guinée",
+        title: "Centre de santé : Guinée",
         image: "https://images.unsplash.com/photo-1529336953121-a0ce66f9c5fa?q=80&w=1480&auto=format&fit=crop",
         need: "Présenter l'activité, gestion rendez‑vous patients",
         solution: "Site pour un centre de santé (Symfony + React). Projet en cours.",
@@ -304,7 +304,7 @@ const i18n = {
     lang_label: "Langue",
 
     seo_title: "Bafodé Cissé – Développeur Web Freelance (React & Symfony)",
-    seo_desc: "Bafodé Cissé — Développeur Web Freelance spécialisé en React & Symfony. Sites vitrines, e‑commerce et applications sur mesure.",
+    seo_desc: "Bafodé Cissé : Développeur Web Freelance spécialisé en React & Symfony. Sites vitrines, e‑commerce et applications sur mesure.",
     og_locale: "fr_FR",
   },
 
@@ -366,7 +366,7 @@ const i18n = {
       // Row 1 (show first)
       {
         id: "parfumerie",
-        title: "E-commerce store — Perfume shop",
+        title: "E-commerce store : Perfume shop",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
         need: "Sell perfumes online with a smooth buying experience",
         solution: "E-commerce store with catalog, product pages, cart and checkout flow. Includes a demo video.",
@@ -377,7 +377,7 @@ const i18n = {
       },
       {
         id: "ecom",
-        title: "Myoptique — E-commerce store",
+        title: "Myoptique : E-commerce store",
         image: "https://images.unsplash.com/photo-1515165562835-c3b8c1e0b6c6?q=80&w=1480&auto=format&fit=crop",
         need: "Sell online with a smooth checkout",
         solution: "Product catalog, cart, secure checkout, back-office management. Back-end: Symfony + Stripe.",
@@ -388,7 +388,7 @@ const i18n = {
       },
       {
         id: "nextayah",
-        title: "NextAyah — Islamic companion",
+        title: "NextAyah : Islamic companion",
         image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1480&auto=format&fit=crop",
         need: "Revise and memorize surahs easily on mobile and desktop",
         solution: "Islamic companion for mobile and desktop to revise surahs with a simple, smooth interface designed for everyday practice.",
@@ -399,7 +399,7 @@ const i18n = {
       },
       {
         id: "automatisation",
-        title: "Automatisation — Smart automation tools",
+        title: "Automatisation : Smart automation tools",
         image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1480&auto=format&fit=crop",
         need: "Automate sales prospecting by targeting specific departments",
         solution: "Automation platform for prospecting with automatic website discovery based on one or multiple selected departments to find qualified leads faster.",
@@ -422,7 +422,7 @@ const i18n = {
       },
       {
         id: "hospital",
-        title: "Health center — Guinea",
+        title: "Health center : Guinea",
         image: "https://images.unsplash.com/photo-1529336953121-a0ce66f9c5fa?q=80&w=1480&auto=format&fit=crop",
         need: "Present activity, patient appointment management",
         solution: "Site for a health center (Symfony + React). Project ongoing.",
@@ -480,7 +480,7 @@ const i18n = {
         src: "/trust/souleymane-bah.png",
         alt: "Recommendation screenshot from Souleymane BAH",
         quote:
-          "I really enjoyed working with you on this project. Your consistent versioning follow-up, strong understanding of the requirements, and Docker skills for deployment made a real difference. Thanks for your work and great attitude — glad we collaborated!",
+          "I really enjoyed working with you on this project. Your consistent versioning follow-up, strong understanding of the requirements, and Docker skills for deployment made a real difference. Thanks for your work and great attitude, glad we collaborated!",
       },
     ],
 
@@ -555,7 +555,7 @@ const i18n = {
     lang_label: "Language",
 
     seo_title: "Bafodé Cissé – Freelance Web Developer (React & Symfony)",
-    seo_desc: "Bafodé Cissé — Freelance web developer specialized in React & Symfony. Showcase sites, e‑commerce and custom apps.",
+    seo_desc: "Bafodé Cissé : Freelance web developer specialized in React & Symfony. Showcase sites, e‑commerce and custom apps.",
     og_locale: "en_US",
   },
 };
@@ -975,7 +975,7 @@ const Footer = ({ t }) => (
   <footer className="border-t border-neutral-200 dark:border-neutral-800 py-10 bg-white dark:bg-neutral-950">
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-        <p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} — Tous droits réservés / All rights reserved.</p>
+        <p className="text-neutral-600 dark:text-neutral-300">© {new Date().getFullYear()} {t.brand} · Tous droits réservés / All rights reserved.</p>
         <div className="flex items-center gap-5 text-neutral-600 dark:text-neutral-300">
           <a href="#home" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.home}</a>
           <a href="#services" className="hover:text-neutral-900 dark:hover:text-white">{t.nav.services}</a>
@@ -998,7 +998,7 @@ export default function App() {
   const toggleTheme = () => setTheme((p) => (p === "dark" ? "light" : "dark"));
   useEffect(() => { const root = document.documentElement; if (theme === "dark") root.classList.add("dark"); else root.classList.remove("dark"); localStorage.setItem("theme", theme); }, [theme]);
 
-  // Initialize EmailJS (step 5) — important for debugging & optional if you pass publicKey in sendForm
+  // Initialize EmailJS (step 5) : important for debugging & optional if you pass publicKey in sendForm
   useEffect(() => {
     try {
       const key = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
