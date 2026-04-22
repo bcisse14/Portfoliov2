@@ -13,6 +13,8 @@ import ParfumerieVideo from "./assets/Parfumerie.mp4";
 import ParfumeriePoster from "./assets/Parfumerie_poster.png";
 import BudgetVideo from "./assets/Budget.mp4";
 import BudgetPoster from "./assets/Budget_poster.png";
+import NextAyahVideo from "./assets/NextAyah.mp4";
+import NextAyahPoster from "./assets/NextAyah_poster.png";
 import HotelDemoImg from "./assets/hotel_demo.png";
 import ImmoDemoImg from "./assets/immo_demo.png";
 
@@ -34,7 +36,6 @@ import {
   Play,
 } from "lucide-react";
 import PortfolioCarousel from "./components/PortfolioCarousel";
-import LatestWorks from "./components/LatestWorks";
 
 // ------------------------------------------------------
 // Portfolio Freelance – React + Tailwind + Framer Motion
@@ -125,6 +126,17 @@ const i18n = {
         tags: ["React", "Symfony", "Stripe"],
         video: MyoptiqueVideo,
         poster: MyoptiquePoster,
+        link: "#",
+      },
+      {
+        id: "nextayah",
+        title: "NextAyah — Compagnon islamique",
+        image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1480&auto=format&fit=crop",
+        need: "Réviser et mémoriser ses sourates facilement sur mobile et PC",
+        solution: "Compagnon islamique disponible sur mobile et ordinateur pour réviser les sourates avec une interface simple, fluide et adaptée au quotidien.",
+        tags: ["React", "Mobile", "Desktop"],
+        video: NextAyahVideo,
+        poster: NextAyahPoster,
         link: "#",
       },
       // Ligne 2
@@ -359,6 +371,17 @@ const i18n = {
         tags: ["React", "Symfony", "Stripe"],
         video: MyoptiqueVideo,
         poster: MyoptiquePoster,
+        link: "#",
+      },
+      {
+        id: "nextayah",
+        title: "NextAyah — Islamic companion",
+        image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1480&auto=format&fit=crop",
+        need: "Revise and memorize surahs easily on mobile and desktop",
+        solution: "Islamic companion for mobile and desktop to revise surahs with a simple, smooth interface designed for everyday practice.",
+        tags: ["React", "Mobile", "Desktop"],
+        video: NextAyahVideo,
+        poster: NextAyahPoster,
         link: "#",
       },
       // Row 2
@@ -995,7 +1018,6 @@ export default function App() {
       <Nav t={t} theme={theme} toggleTheme={toggleTheme} lang={lang} toggleLang={toggleLang} />
       <Hero t={t} />
       <Services t={t} />
-    <LatestWorks t={t} />
       <Portfolio t={t} lang={lang} onOpen={openProject} />
       <About t={t} />
       <TrustedBy t={t} onOpen={openTrust} />
