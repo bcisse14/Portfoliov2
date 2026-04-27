@@ -19,6 +19,8 @@ import NextAyahVideo from "./assets/NextAyah.mp4";
 import NextAyahPoster from "./assets/NextAyah_poster.png";
 import DisciplineVideo from "./assets/Discipline.mp4";
 import DisciplinePoster from "./assets/Discipline_poster.png";
+import HotelShowcaseVideo from "./assets/hôtel.mp4";
+import HotelShowcasePoster from "./assets/hotel_poster.png";
 import HotelDemoImg from "./assets/hotel_demo.png";
 import ImmoDemoImg from "./assets/immo_demo.png";
 
@@ -110,6 +112,17 @@ const i18n = {
     ],
     projects: [
       // Ligne 1 (à afficher en premier)
+      {
+        id: "hotel-showcase",
+        title: "Hôtel : Site de réservation",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1480&auto=format&fit=crop",
+        need: "Présenter un hôtel avec une interface moderne et immersive",
+        solution: "Site d'hôtel pensé pour mettre en avant les chambres, les services et l'expérience client avec un parcours clair et responsive.",
+        tags: ["React", "UI/UX", "Hospitality"],
+        video: HotelShowcaseVideo,
+        poster: HotelShowcasePoster,
+        link: "#",
+      },
       {
         id: "parfumerie",
         title: "Boutique e‑commerce : Parfumerie",
@@ -377,6 +390,17 @@ const i18n = {
     ],
     projects: [
       // Row 1 (show first)
+      {
+        id: "hotel-showcase",
+        title: "Hotel : Booking website",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1480&auto=format&fit=crop",
+        need: "Showcase a hotel with a modern and immersive interface",
+        solution: "Hotel website designed to highlight rooms, services and customer experience through a clear, responsive journey.",
+        tags: ["React", "UI/UX", "Hospitality"],
+        video: HotelShowcaseVideo,
+        poster: HotelShowcasePoster,
+        link: "#",
+      },
       {
         id: "parfumerie",
         title: "E-commerce store : Perfume shop",
