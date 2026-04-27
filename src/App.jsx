@@ -21,6 +21,8 @@ import DisciplineVideo from "./assets/Discipline.mp4";
 import DisciplinePoster from "./assets/Discipline_poster.png";
 import HotelShowcaseVideo from "./assets/hôtel.mp4";
 import HotelShowcasePoster from "./assets/hotel_poster.png";
+import ImmoShowcaseVideo from "./assets/Immo.mp4";
+import ImmoShowcasePoster from "./assets/immo_poster.png";
 import HotelDemoImg from "./assets/hotel_demo.png";
 import ImmoDemoImg from "./assets/immo_demo.png";
 
@@ -121,6 +123,17 @@ const i18n = {
         tags: ["React", "UI/UX", "Hospitality"],
         video: HotelShowcaseVideo,
         poster: HotelShowcasePoster,
+        link: "#",
+      },
+      {
+        id: "immo-showcase",
+        title: "Immobilier : Site d'agence",
+        image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1480&auto=format&fit=crop",
+        need: "Présenter des biens immobiliers avec une navigation claire et engageante",
+        solution: "Site immobilier conçu pour valoriser les annonces, faciliter la recherche et mettre en avant les services de l'agence avec une expérience fluide et responsive.",
+        tags: ["React", "UI/UX", "Real Estate"],
+        video: ImmoShowcaseVideo,
+        poster: ImmoShowcasePoster,
         link: "#",
       },
       {
@@ -399,6 +412,17 @@ const i18n = {
         tags: ["React", "UI/UX", "Hospitality"],
         video: HotelShowcaseVideo,
         poster: HotelShowcasePoster,
+        link: "#",
+      },
+      {
+        id: "immo-showcase",
+        title: "Real estate : Agency website",
+        image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1480&auto=format&fit=crop",
+        need: "Showcase properties with clear and engaging navigation",
+        solution: "Real estate website built to highlight listings, simplify search and present the agency's services through a smooth, responsive experience.",
+        tags: ["React", "UI/UX", "Real Estate"],
+        video: ImmoShowcaseVideo,
+        poster: ImmoShowcasePoster,
         link: "#",
       },
       {
